@@ -3,47 +3,27 @@ package com.example.task05;
 /**
  * Точка в двумерном пространстве
  */
-public class Point {
+public class Point implements Cloneable{
+    private double x;
+    private double y;
 
-    /**
-     * Конструктор, инициализирующий координаты точки
-     *
-     * @param x координата по оси абсцисс
-     * @param y координата по оси ординат
-     */
-    public Point(double x, double y) {
-        throw new AssertionError();
+    public Point(double X, double Y) {
+        x = X;
+        y = Y;
     }
 
-    /**
-     * Возвращает координату точки по оси абсцисс
-     *
-     * @return координату точки по оси X
-     */
-    public double getX() {
-        // TODO: реализовать
-        throw new AssertionError();
-    }
+    public double getX() { return this.x; }
+    public double getY() { return this.y; }
 
-    /**
-     * Возвращает координату точки по оси ординат
-     *
-     * @return координату точки по оси Y
-     */
-    public double getY() {
-        // TODO: реализовать
-        throw new AssertionError();
-    }
-
-    /**
-     * Подсчитывает расстояние от текущей точки до точки, переданной в качестве параметра
-     *
-     * @param point вторая точка отрезка
-     * @return расстояние от текущей точки до переданной
-     */
     public double getLength(Point point) {
-        // TODO: реализовать
-        throw new AssertionError();
+        double dx = (this.x - point.x) * (this.x - point.x);
+        double dy = (this.y - point.y) * (this.y - point.y);
+
+        return Math.sqrt(dx + dy);
     }
 
+    @Override
+    public Point clone() throws CloneNotSupportedException {
+        return (Point)super.clone();
+    }
 }
