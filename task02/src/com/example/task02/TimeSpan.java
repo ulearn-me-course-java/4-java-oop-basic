@@ -1,34 +1,42 @@
 package com.example.task02;
 
 public class TimeSpan {
-    private byte hours;
-    private byte minutes;
-    private byte seconds;
+    private int hours;
+    private int minutes;
+    private int seconds;
 
-    public TimeSpan(byte h, byte m, byte s){
-        hours = h;
-        minutes = m;
+    public TimeSpan(int h, int m, int s){
         seconds = s;
+        minutes = m;
+        hours = h;
     }
 
-    public byte getHours(){ return hours; }
-    public byte getMinutes() { return minutes; }
-    public byte getSeconds() { return seconds; }
+    public int getHours(){ return hours; }
+    public int getMinutes() { return minutes; }
+    public int getSeconds() { return seconds; }
 
-    public void setHours(byte h) { hours = h; }
+    public void setHours(int h) { hours = h; }
     public void setMinutes(byte m) { minutes = m; }
     public void setSeconds(byte s) { seconds = s; }
 
     void add(TimeSpan time){
-        this.hours += time.hours;
-        this.minutes += time.minutes;
-        this.seconds += time.seconds;
+        long dtimeSec = (hours * 3600 + minutes * 60 + seconds) +
+                (time.hours * 3600 + time.minutes * 60 + time.seconds);
+
+        this.hours = (int)(dtimeSec / 3600);
+        this.minutes = (int)((dtimeSec %3600) / 60);
+        this.seconds = (int)((dtimeSec % 3600) % 60);
     }
 
     void subtract(TimeSpan time){
-        this.hours -= time.hours;
-        this.minutes -= time.minutes;
-        this.seconds -= time.seconds;
+        long dtimeSec = (hours * 3600 + minutes * 60 + seconds) -
+                (time.hours * 3600 + time.minutes * 60 + time.seconds);
+
+        if(dtimeSec < 0) dtimeSec = 0;
+
+        this.hours = (int)(dtimeSec / 3600);
+        this.minutes = (int)((dtimeSec %3600) / 60);
+        this.seconds = (int)((dtimeSec % 3600) % 60);
     }
 
     public String toString(){
