@@ -14,12 +14,11 @@ public class Line {
 
     public boolean isCollinearLine(Point p){
         int dx1 = this.p2.x - this.p1.x;
-        int dy1 = this.p2.y - this.p1.x;
-
+        int dy1 = this.p2.y - this.p1.y;
         int dx = p.x - this.p1.x;
         int dy = p.y - this.p1.y;
 
-        int s = dx1*dy - dx*dy1;
+        int s = dx*dy1 - dy*dx1;
 
         return s == 0;
 
