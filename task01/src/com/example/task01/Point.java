@@ -26,9 +26,4 @@ public class Point {
     }
 
     public String toString(){ return "(" + this.x + ", " + this.y + ")"; }
-
-    void print() {
-        String pointToString = String.format("(%d, %d)", x, y);
-        System.out.println(pointToString);
-    }
 }
