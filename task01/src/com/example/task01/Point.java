@@ -5,16 +5,14 @@ package com.example.task01;
  */
 public class Point {
 
-    Point() {
-    }
+    Point() {}
 
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    int x;
-    int y;
+    int x, y;
 
     void flip(){
         int temp = x;
@@ -23,6 +21,8 @@ public class Point {
     }
 
     double distance(Point point){
+        if (point == null)
+            throw new NullPointerException("Point is null");
         return Math.sqrt((x - point.x) * (x - point.x) + (y - point.y) * (y - point.y));
     }
 
