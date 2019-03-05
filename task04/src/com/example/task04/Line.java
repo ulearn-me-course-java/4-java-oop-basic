@@ -4,6 +4,8 @@ public class Line {
     private final Point p1, p2;
 
     public Line(Point p1, Point p2) {
+        if(p1 == null || p2 ==null)
+            throw new NullPointerException("p1 or p2 is null");
         this.p1 = p1;
         this.p2 = p2;
     }
@@ -26,6 +28,8 @@ public class Line {
 
     // A = (Y1 - Y2)    B = (X2 - X1)   C = (X1 * Y2 - X2 * Y1)
     public boolean isCollinearLine(Point p){
+        if(p == null)
+            throw  new NullPointerException("Point is null");
         return (p1.getY() - p2.getY()) * p.getX() + (p2.getX() - p1.getX()) * p.getY() +
                 p1.getX() * p2.getY() - p2.getX() * p1.getY() == 0;
     }
