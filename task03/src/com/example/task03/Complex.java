@@ -22,10 +22,14 @@ public class Complex {
     }
 
     Complex add(Complex complex){
+        if(complex == null)
+            throw  new NullPointerException("Complex is null");
         return new Complex(real + complex.real, image + complex.image);
     }
 
     Complex multiply(Complex complex){
+        if(complex == null)
+            throw  new NullPointerException("Complex is null");
         return new Complex(real * complex.real - image * complex.image,
                 real * complex.image + image * complex.real);
     }
