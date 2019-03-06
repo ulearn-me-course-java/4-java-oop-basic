@@ -1,46 +1,39 @@
 package com.example.task05;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Ломаная линия
  */
 public class PolygonalLine {
 
-    /**
-     * Устанавливает точки ломаной линии
-     *
-     * @param points массив точек, которыми нужно проинициализировать ломаную линию
-     */
+    List<Point> points = new ArrayList<>();
+
     public void setPoints(Point[] points) {
-        // TODO: реализовать
+        for (Point point : points)
+            addPoint(point);
     }
 
-    /**
-     * Добавляет точку к ломаной линии
-     *
-     * @param point точка, которую нужно добавить к ломаной
-     */
     public void addPoint(Point point) {
-        // TODO: реализовать
+        addPoint(point.getX(),point.getY());
     }
 
-    /**
-     * Добавляет точку к ломаной линии
-     *
-     * @param x координата по оси абсцисс
-     * @param y координата по оси ординат
-     */
     public void addPoint(double x, double y) {
-        // TODO: реализовать
+        points.add(new Point(x, y));
     }
 
-    /**
-     * Возвращает длину ломаной линии
+
+    /** Hасстояние от точки А с координатой x1 формула до точки В с координатой x2 равно модулю разности координат,
+     *  то есть |AB| = |x2 - x1|, формула при любом расположении точек на координатной прямой.
      *
      * @return длину ломаной линии
      */
     public double getLength() {
-        // TODO: реализовать
-        throw new AssertionError();
+        double length = 0;
+        for (int i = 1; i < points.size(); i++) {
+            length += points.get(i).getLength(points.get(i - 1));
+        }
+        return length;
     }
-
 }
