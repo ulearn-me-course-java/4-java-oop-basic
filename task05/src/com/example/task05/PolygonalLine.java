@@ -5,13 +5,18 @@ package com.example.task05;
  */
 public class PolygonalLine {
 
+    private Point[] points=new Point[5000];
     /**
      * Устанавливает точки ломаной линии
      *
      * @param points массив точек, которыми нужно проинициализировать ломаную линию
      */
     public void setPoints(Point[] points) {
-        // TODO: реализовать
+
+        for (int i = 0; i<points.length;i++){
+            this.points[i]=new Point(points[i]);
+        }
+
     }
 
     /**
@@ -20,7 +25,10 @@ public class PolygonalLine {
      * @param point точка, которую нужно добавить к ломаной
      */
     public void addPoint(Point point) {
-        // TODO: реализовать
+        int i =0;
+        while (points[i]!=null)
+            i++;
+       points[i]=new Point(point);
     }
 
     /**
@@ -30,7 +38,10 @@ public class PolygonalLine {
      * @param y координата по оси ординат
      */
     public void addPoint(double x, double y) {
-        // TODO: реализовать
+        int i =0;
+        while (points[i]!=null)
+            i++;
+        points[i]=new Point(x, y);
     }
 
     /**
@@ -39,8 +50,15 @@ public class PolygonalLine {
      * @return длину ломаной линии
      */
     public double getLength() {
-        // TODO: реализовать
-        throw new AssertionError();
+       double distance = 0;
+       int i = 1;
+       while (i<points.length && points[i]!=null){
+           distance += points[i].getLength(points[i-1]);
+           i++;
+       }
+       return distance;
     }
+
+
 
 }
