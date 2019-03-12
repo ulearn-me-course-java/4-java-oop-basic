@@ -1,49 +1,30 @@
 package com.example.task05;
+import static java.lang.Math.pow;
 
-/**
- * Точка в двумерном пространстве
- */
-public class Point {
+class Point {
 
-    /**
-     * Конструктор, инициализирующий координаты точки
-     *
-     * @param x координата по оси абсцисс
-     * @param y координата по оси ординат
-     */
-    public Point(double x, double y) {
-        throw new AssertionError();
+    private final double x;
+    private final double y;
+
+    Point(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+    Point(Point p){
+        this.x = p.x;
+        this.y = p.y;
     }
 
-    /**
-     * Возвращает координату точки по оси абсцисс
-     *
-     * @return координату точки по оси X
-     */
-    public double getX() {
-        // TODO: реализовать
-        throw new AssertionError();
+    double getX() {
+        return x;
     }
 
-    /**
-     * Возвращает координату точки по оси ординат
-     *
-     * @return координату точки по оси Y
-     */
-    public double getY() {
-        // TODO: реализовать
-        throw new AssertionError();
+    double getY() {
+    return y;
     }
 
-    /**
-     * Подсчитывает расстояние от текущей точки до точки, переданной в качестве параметра
-     *
-     * @param point вторая точка отрезка
-     * @return расстояние от текущей точки до переданной
-     */
-    public double getLength(Point point) {
-        // TODO: реализовать
-        throw new AssertionError();
+    double getLength(Point point) {
+        return Math.sqrt(pow(point.x - x, 2) + pow(point.y - y, 2));
     }
 
 }
