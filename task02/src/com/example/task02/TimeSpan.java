@@ -6,8 +6,12 @@ public class TimeSpan {
     private int timeInHours;
 
     public void setSeconds(int seconds){
+        if(seconds < 0) {
+            throw new RuntimeException();
+        }
         timeInSeconds = seconds;
     }
+
     public int getSeconds(){
         return timeInSeconds;
     }
@@ -15,6 +19,7 @@ public class TimeSpan {
     public void setMinutes(int minutes){
         timeInMinutes = minutes;
     }
+
     public int getMinutes(){
         return timeInMinutes;
     }
@@ -47,4 +52,6 @@ public class TimeSpan {
     public String toString(){
         return String.format("Представление времени в часах: %d, в минутах: %d, в секундах: %d)", timeInHours, timeInMinutes, timeInSeconds);
     }
+    //Почему нельзя создать объект TimeSpan в другом пакете
+    //Что такое инкапсуляция, полиморфизм пример
 }
