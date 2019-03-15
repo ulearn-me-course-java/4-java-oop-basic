@@ -51,7 +51,6 @@ public class TimeSpan {
         this.seconds = seconds;
     }
 
-    @Override
     public String toString() {
         return String.format("[%d:%d:%d]", hours, minutes, seconds);
     }
