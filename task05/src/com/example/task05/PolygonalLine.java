@@ -1,9 +1,12 @@
 package com.example.task05;
 
+import java.util.Vector;
+
 /**
  * Ломаная линия
  */
 public class PolygonalLine {
+    private Vector<Point> points = new Vector<>();
 
     /**
      * Устанавливает точки ломаной линии
@@ -12,6 +15,10 @@ public class PolygonalLine {
      */
     public void setPoints(Point[] points) {
         // TODO: реализовать
+        this.points.clear();
+        for (Point point: points) {
+            this.addPoint(point);
+        }
     }
 
     /**
@@ -21,6 +28,7 @@ public class PolygonalLine {
      */
     public void addPoint(Point point) {
         // TODO: реализовать
+        this.addPoint(point.getX(), point.getY());
     }
 
     /**
@@ -31,6 +39,7 @@ public class PolygonalLine {
      */
     public void addPoint(double x, double y) {
         // TODO: реализовать
+        this.points.add(new Point(x, y));
     }
 
     /**
@@ -40,7 +49,12 @@ public class PolygonalLine {
      */
     public double getLength() {
         // TODO: реализовать
-        throw new AssertionError();
+        //throw new AssertionError();
+        double sum = 0;
+        for (int i = 1; i < this.points.size(); i++) {
+            sum += this.points.get(i).getLength(this.points.get(i-1));
+        }
+        return sum;
     }
 
 }

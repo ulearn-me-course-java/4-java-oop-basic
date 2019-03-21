@@ -4,6 +4,8 @@ package com.example.task05;
  * Точка в двумерном пространстве
  */
 public class Point {
+    private final double x;
+    private final double y;
 
     /**
      * Конструктор, инициализирующий координаты точки
@@ -12,7 +14,9 @@ public class Point {
      * @param y координата по оси ординат
      */
     public Point(double x, double y) {
-        throw new AssertionError();
+        //throw new AssertionError();
+        this.x = x;
+        this.y = y;
     }
 
     /**
@@ -22,7 +26,8 @@ public class Point {
      */
     public double getX() {
         // TODO: реализовать
-        throw new AssertionError();
+        //throw new AssertionError();
+        return this.x;
     }
 
     /**
@@ -32,7 +37,8 @@ public class Point {
      */
     public double getY() {
         // TODO: реализовать
-        throw new AssertionError();
+        //throw new AssertionError();
+        return this.y;
     }
 
     /**
@@ -43,7 +49,8 @@ public class Point {
      */
     public double getLength(Point point) {
         // TODO: реализовать
-        throw new AssertionError();
+        //throw new AssertionError();
+        return Math.sqrt((this.x - point.x) * (this.x - point.x) + (this.y - point.y) * (this.y - point.y));
     }
 
 }
