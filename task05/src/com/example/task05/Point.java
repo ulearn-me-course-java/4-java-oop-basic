@@ -14,7 +14,6 @@ public class Point {
      * @param y координата по оси ординат
      */
     public Point(double x, double y) {
-        //throw new AssertionError();
         this.x = x;
         this.y = y;
     }
@@ -25,8 +24,6 @@ public class Point {
      * @return координату точки по оси X
      */
     public double getX() {
-        // TODO: реализовать
-        //throw new AssertionError();
         return this.x;
     }
 
@@ -36,8 +33,6 @@ public class Point {
      * @return координату точки по оси Y
      */
     public double getY() {
-        // TODO: реализовать
-        //throw new AssertionError();
         return this.y;
     }
 
@@ -48,8 +43,6 @@ public class Point {
      * @return расстояние от текущей точки до переданной
      */
     public double getLength(Point point) {
-        // TODO: реализовать
-        //throw new AssertionError();
         return Math.sqrt((this.x - point.x) * (this.x - point.x) + (this.y - point.y) * (this.y - point.y));
     }
 
