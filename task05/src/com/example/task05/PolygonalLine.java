@@ -1,17 +1,38 @@
 package com.example.task05;
 
+import java.util.ArrayList;
+
 /**
  * Ломаная линия
  */
 public class PolygonalLine {
 
+    private ArrayList<Point> points;
+
+    PolygonalLine() {
+        points = new ArrayList<Point>();
+    }
+
+    PolygonalLine(Point[] points) {
+        this.points = new ArrayList<Point>();
+        setPoints(points);
+    }
+
     /**
      * Устанавливает точки ломаной линии
+     * Если объект уже содержит какие-либо точки (поле points не пусто), точки не будут установлены
+     * Для добавления новых точек к ломанной рекомедуется использовать метод addPoint
      *
      * @param points массив точек, которыми нужно проинициализировать ломаную линию
      */
     public void setPoints(Point[] points) {
-        // TODO: реализовать
+        if (this.points.isEmpty()) {
+            for (Point p : points) {
+                this.points.add(new Point(p.getX(), p.getY()));
+            }
+        } else {
+            System.out.println("The field \"points\" is already initialized. \nIf you want to add new points use the method \"addPoint\"");
+        }
     }
 
     /**
@@ -20,7 +41,7 @@ public class PolygonalLine {
      * @param point точка, которую нужно добавить к ломаной
      */
     public void addPoint(Point point) {
-        // TODO: реализовать
+        this.points.add(new Point(point.getX(), point.getY()));
     }
 
     /**
@@ -30,7 +51,7 @@ public class PolygonalLine {
      * @param y координата по оси ординат
      */
     public void addPoint(double x, double y) {
-        // TODO: реализовать
+        this.points.add(new Point(x, y));
     }
 
     /**
@@ -39,8 +60,11 @@ public class PolygonalLine {
      * @return длину ломаной линии
      */
     public double getLength() {
-        // TODO: реализовать
-        throw new AssertionError();
+        double length = 0;
+        for (int i = 0; i < this.points.size() - 1; i++) {
+            length += this.points.get(i).getLength(this.points.get(i + 1));
+        }
+        return length;
     }
 
 }
