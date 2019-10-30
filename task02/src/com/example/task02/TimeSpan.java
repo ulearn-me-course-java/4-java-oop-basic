@@ -43,7 +43,7 @@ public class TimeSpan {
         this.hours = (this.hours + time.hours + tmpMinutes);
     }
     void subtract(TimeSpan time){
-        if(this.hours < time.hours) {
+        if (this.secs < time.secs || this.minutes < time.minutes || this.hours < time.hours) {
             System.out.println("Incorrect operation");
         }
         else {
