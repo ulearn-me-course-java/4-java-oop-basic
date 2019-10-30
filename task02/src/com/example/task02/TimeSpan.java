@@ -35,45 +35,50 @@ public class TimeSpan {
         this.hours = h;
         this.minutes = m;
         this.seconds = s;
-        this.minutes+=this.seconds/60;
-        this.seconds%=60;
-        this.hours+=this.minutes/60;
-        this.minutes%=60;
+        this.minutes += this.seconds / 60;
+        this.seconds %= 60;
+        this.hours += this.minutes / 60;
+        this.minutes %= 60;
     }
 
-    TimeSpan(){
-        this(0,0,0);
+    TimeSpan() {
+        this(0, 0, 0);
     }
 
-    void add(TimeSpan ts){
-        this.hours+=ts.hours;
-        this.minutes+=ts.minutes;
-        this.seconds+=ts.seconds;
-        this.minutes+=this.seconds/60;
-        this.seconds%=60;
-        this.hours+=this.minutes/60;
-        this.minutes%=60;
+    void add(TimeSpan ts) {
+        this.hours += ts.hours;
+        this.minutes += ts.minutes;
+        this.seconds += ts.seconds;
+        this.minutes += this.seconds / 60;
+        this.seconds %= 60;
+        this.hours += this.minutes / 60;
+        this.minutes %= 60;
     }
 
-    void subtract(TimeSpan ts){
-        this.hours-=ts.hours;
-        this.minutes-=ts.minutes;
-        this.seconds-=ts.seconds;
-        if (this.seconds<0){
-            while(this.seconds<0)
-            {
-                this.seconds+=60;
-                this.minutes-=1;
+    void subtract(TimeSpan ts) {
+        this.hours -= ts.hours;
+        this.minutes -= ts.minutes;
+        this.seconds -= ts.seconds;
+        if (this.seconds < 0) {
+            while (this.seconds < 0) {
+                this.seconds += 60;
+                this.minutes -= 1;
             }
         }
-        if (this.minutes<0){
-            while(this.minutes<0){
-                this.minutes+=60;
-                this.hours-=1;
+        if (this.minutes < 0) {
+            while (this.minutes < 0) {
+                this.minutes += 60;
+                this.hours -= 1;
             }
         }
+        if (this.hours < 0) {
+            this.seconds = 0;
+            this.hours = 0;
+            this.minutes = 0;
+        }
     }
-    public String toString(){
-        return "Hours: "+Integer.toString(this.hours)+" Minutes: "+Integer.toString(this.minutes)+" Seconds "+Integer.toString(this.seconds);
+
+    public String toString() {
+        return "Hours: " + Integer.toString(this.hours) + " Minutes: " + Integer.toString(this.minutes) + " Seconds " + Integer.toString(this.seconds);
     }
 }
