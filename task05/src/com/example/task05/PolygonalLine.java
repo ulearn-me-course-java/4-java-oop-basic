@@ -1,20 +1,24 @@
 package com.example.task05;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PolygonalLine {
-    private ArrayList<Point> points;
+    private List<Point> points = new ArrayList<>();
 
-    PolygonalLine() {
-        this.points = new ArrayList<>();
-    }
     public void setPoints(Point[] points) {
+        if (points == null) {
+            throw new NullPointerException();
+        }
         for (Point p : points) {
             this.points.add(new Point(p.getX(), p.getY()));
         }
     }
 
     public void addPoint(Point point) {
+        if (point == null) {
+            throw new NullPointerException();
+        }
         this.points.add(new Point(point.getX(), point.getY()));
     }
 
