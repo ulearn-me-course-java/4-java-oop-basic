@@ -10,6 +10,9 @@ public class Line {
     }
 
     Line(Point point1, Point point2) {
+        if (point1 == null || point2 == null) {
+            throw new NullPointerException();
+        }
         this.point1 = point1;
         this.point2 = point2;
     }
@@ -18,16 +21,8 @@ public class Line {
         return point1;
     }
 
-    public void setPoint1(Point point1) {
-        this.point1 = point1;
-    }
-
     public Point getPoint2() {
         return point2;
-    }
-
-    public void setPoint2(Point point2) {
-        this.point2 = point2;
     }
 
     public String toString() {
@@ -35,6 +30,9 @@ public class Line {
     }
 
     public boolean isCollinearLine(Point p) {
+        if (p == null) {
+            throw new NullPointerException();
+        }
         if (point2.x - point1.x == 0) {
             return Math.min(point1.y, point2.y) <= p.y && Math.max(point1.y, point2.y) >= p.y;
         }
