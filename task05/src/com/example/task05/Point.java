@@ -1,79 +1,50 @@
 package com.example.task05;
 
-import java.util.List;
-import java.util.ArrayList;
-
 /**
- * Ломаная линия
+ * Точка в двумерном пространстве
  */
-public class PolygonalLine {
+public class Point {
 
-    private List<Point> points = new ArrayList<Point>();
-
-    PolygonalLine() {
-    }
-
-    PolygonalLine(Point[] points) {
-        if (points == null) {
-            throw new NullPointerException();
-        }
-        this.points = new ArrayList<Point>();
-        setPoints(points);
-    }
+    private final double x;
+    private final double y;
 
     /**
-     * Устанавливает точки ломаной линии
-     * Если объект уже содержит какие-либо точки (поле points не пусто), точки не будут установлены
-     * Для добавления новых точек к ломанной рекомедуется использовать метод addPoint
-     *
-     * @param points массив точек, которыми нужно проинициализировать ломаную линию
-     */
-    public void setPoints(Point[] points) {
-        if (points == null) {
-            throw new NullPointerException();
-        }
-        if (this.points.isEmpty()) {
-            for (Point p : points) {
-                this.points.add(new Point(p.getX(), p.getY()));
-            }
-        } else {
-            System.out.println("The field \"points\" is already initialized. \nIf you want to add new points use the method \"addPoint\"");
-        }
-    }
-
-    /**
-     * Добавляет точку к ломаной линии
-     *
-     * @param point точка, которую нужно добавить к ломаной
-     */
-    public void addPoint(Point point) {
-        if (point == null) {
-            throw new NullPointerException();
-        }
-        this.points.add(new Point(point.getX(), point.getY()));
-    }
-
-    /**
-     * Добавляет точку к ломаной линии
+     * Конструктор, инициализирующий координаты точки
      *
      * @param x координата по оси абсцисс
      * @param y координата по оси ординат
      */
-    public void addPoint(double x, double y) {
-        this.points.add(new Point(x, y));
+    public Point(double x, double y) {
+        this.x = x;
+        this.y = y;
     }
 
     /**
-     * Возвращает длину ломаной линии
+     * Возвращает координату точки по оси абсцисс
      *
-     * @return длину ломаной линии
+     * @return координату точки по оси X
      */
-    public double getLength() {
-        double length = 0;
-        for (int i = 0; i < this.points.size() - 1; i++) {
-            length += this.points.get(i).getLength(this.points.get(i + 1));
-        }
-        return length;
+    public double getX() {
+        return this.x;
+    }
+
+    /**
+     * Возвращает координату точки по оси ординат
+     *
+     * @return координату точки по оси Y
+     */
+    public double getY() {
+        return this.y;
+    }
+
+    /**
+     * Подсчитывает расстояние от текущей точки до точки, переданной в качестве параметра
+     *
+     * @param point вторая точка отрезка
+     * @return расстояние от текущей точки до переданной
+     */
+    public double getLength(Point point) {
+        return Math.sqrt(Math.pow(this.x - point.x, 2) + Math.pow(this.y - point.y, 2));
     }
 
 }
