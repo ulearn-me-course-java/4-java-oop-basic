@@ -15,7 +15,7 @@ public class PolygonalLine {
 
     PolygonalLine(Point[] points) {
         if (points == null) {
-            throw new NullPointerException();
+            throw new IllegalArgumentException();
         }
         this.points = new ArrayList<Point>();
         setPoints(points);
@@ -30,7 +30,7 @@ public class PolygonalLine {
      */
     public void setPoints(Point[] points) {
         if (points == null) {
-            throw new NullPointerException();
+            throw new IllegalArgumentException();
         }
         if (this.points.isEmpty()) {
             for (Point p : points) {
