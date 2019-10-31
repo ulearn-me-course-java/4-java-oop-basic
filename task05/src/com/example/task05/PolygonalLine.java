@@ -1,5 +1,6 @@
 package com.example.task05;
 
+import java.util.List;
 import java.util.ArrayList;
 
 /**
@@ -7,11 +8,16 @@ import java.util.ArrayList;
  */
 public class PolygonalLine {
 
-    private List<Point> points = new ArrayList<>();
-    
-    PolygonalLine() {}
-    
+    private List<Point> points = new ArrayList<Point>();
+
+    PolygonalLine() {
+    }
+
     PolygonalLine(Point[] points) {
+        if (points == null) {
+            throw new NullPointerException();
+        }
+        this.points = new ArrayList<Point>();
         setPoints(points);
     }
 
@@ -23,8 +29,8 @@ public class PolygonalLine {
      * @param points массив точек, которыми нужно проинициализировать ломаную линию
      */
     public void setPoints(Point[] points) {
-        if(points == null){
-            trow new NullPointerException();
+        if (points == null) {
+            throw new NullPointerException();
         }
         if (this.points.isEmpty()) {
             for (Point p : points) {
@@ -41,8 +47,8 @@ public class PolygonalLine {
      * @param point точка, которую нужно добавить к ломаной
      */
     public void addPoint(Point point) {
-        if(point == null){
-            trow new NullPointerException();
+        if (point == null) {
+            throw new NullPointerException();
         }
         this.points.add(new Point(point.getX(), point.getY()));
     }
