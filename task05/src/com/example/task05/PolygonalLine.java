@@ -7,14 +7,9 @@ import java.util.ArrayList;
  */
 public class PolygonalLine {
 
-    private ArrayList<Point> points;
-
-    PolygonalLine() {
-        points = new ArrayList<Point>();
-    }
+    private List<Point> points = new ArrayList<>();
 
     PolygonalLine(Point[] points) {
-        this.points = new ArrayList<Point>();
         setPoints(points);
     }
 
@@ -26,6 +21,9 @@ public class PolygonalLine {
      * @param points массив точек, которыми нужно проинициализировать ломаную линию
      */
     public void setPoints(Point[] points) {
+        if(points == null){
+            trow new NullPointerException();
+        }
         if (this.points.isEmpty()) {
             for (Point p : points) {
                 this.points.add(new Point(p.getX(), p.getY()));
@@ -41,6 +39,9 @@ public class PolygonalLine {
      * @param point точка, которую нужно добавить к ломаной
      */
     public void addPoint(Point point) {
+        if(point == null){
+            trow new NullPointerException();
+        }
         this.points.add(new Point(point.getX(), point.getY()));
     }
 
