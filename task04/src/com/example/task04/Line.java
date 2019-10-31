@@ -6,6 +6,13 @@ package com.example.task04;
 public class Line {
     private Point p1;
     private Point p2;
+    
+    public Line(Point p1, Point p2) {
+        if (p1 == null || p2 == null)
+            throw new NullPointerException();
+        this.setP1(p1);
+        this.setP2(p2);
+    }
 
     public Point getP1() {
         return this.p1;
@@ -16,16 +23,15 @@ public class Line {
     }
 
     public void setP1(Point p) {
+        if (p == null)
+            throw new NullPointerException();
         this.p1 = p;
     }
 
     public void setP2(Point p) {
+        if (p == null)
+            throw new NullPointerException();
         this.p2 = p;
-    }
-
-    public Line(Point p1, Point p2) {
-        this.setP1(p1);
-        this.setP2(p2);
     }
 
     /**
