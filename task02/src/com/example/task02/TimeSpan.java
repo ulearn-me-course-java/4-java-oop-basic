@@ -99,7 +99,7 @@ public class TimeSpan {
         int timeSpan1 = this.getHours() * 3600 + this.getMinutes() * 60 + this.getSeconds();
         int timeSpan2 = timeSpan.getHours() * 3600 + timeSpan.getMinutes() * 60 + timeSpan.getSeconds();
         int difference = timeSpan1 - timeSpan2;
-        if (difference > 0) {
+        if (difference >= 0) {
             this.setHours(difference / 3600);
             difference = difference - (this.getHours() * 3600);
             this.setMinutes(difference / 60);
