@@ -8,7 +8,9 @@ import java.util.ArrayList;
 public class PolygonalLine {
 
     private List<Point> points = new ArrayList<>();
-
+    
+    PolygonalLine() {}
+    
     PolygonalLine(Point[] points) {
         setPoints(points);
     }
