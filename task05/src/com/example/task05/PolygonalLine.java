@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class PolygonalLine {
 
-    private List<Point> points = new ArrayList<>();
+    private List<Point> points = new ArrayList<Point>();
 
     PolygonalLine(Point[] points) {
         if (points == null) {
