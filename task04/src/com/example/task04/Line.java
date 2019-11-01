@@ -10,11 +10,17 @@ public class Line {
     }
 
     Line(Point first, Point second) {
+        if (first == null || second == null) {
+            throw new IllegalArgumentException();
+        }
         this.first = first;
         this.second = second;
     }
 
     boolean isCollinearLine(Point p) {
+        if (p == null) {
+            throw new IllegalArgumentException();
+        }
         if ((second.x - first.x) == 0) {
             return Math.min(first.y, second.y) <= p.y && Math.max(first.y, second.y) >= p.y;
         }
