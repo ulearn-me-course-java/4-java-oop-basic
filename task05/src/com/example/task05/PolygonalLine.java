@@ -10,6 +10,11 @@ public class PolygonalLine {
 
     private List<Point> pointList = new ArrayList<>();
 
+    /**
+     * Устанавливает точки ломаной линии
+     *
+     * @param points массив точек, которыми нужно проинициализировать ломаную линию
+     */
     void setPoints(Point[] points) {
         if (points == null) {
             throw new IllegalArgumentException();
