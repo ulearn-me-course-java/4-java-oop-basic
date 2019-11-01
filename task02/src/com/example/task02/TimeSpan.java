@@ -5,42 +5,47 @@ public class TimeSpan {
     private int minutes;
     private int seconds;
 
-    TimeSpan(){
+    TimeSpan() {
         this.hours = 0;
         this.minutes = 0;
         this.seconds = 0;
     }
-    TimeSpan(int hours, int minutes, int secs){
+
+    TimeSpan(int hours, int minutes, int secs) {
         this.hours = hours + minutes / 60 + secs / 3600;
         this.minutes = (secs / 60 + minutes) % 60;
         this.seconds = secs % 60;
     }
 
-    void add(TimeSpan time){
-        int sec = (this.seconds + time.seconds) / 60;
-        int min = (this.minutes + time.minutes) / 60;
+    void add(TimeSpan time) {
+        if (time == null) {
+            throw new IllegalArgumentException();
+        }
+        int min = (this.seconds + time.seconds) / 60;
+        int hour = (this.minutes + time.minutes) / 60;
         this.seconds = (this.seconds + time.seconds) % 60;
-        this.minutes  = (this.minutes + time.minutes + sec) % 60;
-        this.hours = (this.hours + time.hours + min);
+        this.minutes = (this.minutes + time.minutes + min) % 60;
+        this.hours = (this.hours + time.hours + hour);
     }
 
-    void subtract(TimeSpan time){
-        if(this.hours < time.hours) {
-            System.out.println("Текущеий временной интервал меньше введеного мереданного");
+    void subtract(TimeSpan time) {
+        if (time == null) {
+            throw new IllegalArgumentException();
         }
-        else {
+        if ((this.hours < time.hours) || (this.hours == time.hours && this.minutes < time.minutes) || (this.hours == time.hours && this.minutes == time.minutes && this.seconds < time.seconds)) {
+            System.out.println("Текущеий временной интервал меньше введеного мереданного");
+        } else {
             this.hours = this.hours - time.hours;
             this.minutes = this.minutes - time.minutes;
             this.seconds = this.seconds - time.seconds;
-            if (this.seconds < 0){
-                while(this.seconds < 0)
-                {
+            if (this.seconds < 0) {
+                while (this.seconds < 0) {
                     this.seconds = this.seconds + 60;
                     this.minutes = this.minutes - 1;
                 }
             }
-            if (this.minutes < 0){
-                while(this.minutes < 0){
+            if (this.minutes < 0) {
+                while (this.minutes < 0) {
                     this.minutes = this.minutes + 60;
                     this.hours = this.hours - 1;
                 }
