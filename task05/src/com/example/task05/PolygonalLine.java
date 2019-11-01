@@ -7,9 +7,12 @@ import java.util.ArrayList;
  */
 public class PolygonalLine {
 
-    private ArrayList<Point> points;
+    private List<Point> points = new ArrayList<>();
 
     PolygonalLine(Point[] points) {
+        if (points == null) {
+            throw new NullPointerException();
+        }
         this.points = new ArrayList<Point>();
         setPoints(points);
     }
@@ -25,6 +28,9 @@ public class PolygonalLine {
      */
     public void setPoints(Point[] points) {
         // TODO: реализовать
+        if (points == null) {
+            throw new NullPointerException();
+        }
         for (Point pnt : points) {
             this.points.add(new Point(pnt.getX(), pnt.getY()));
         }
@@ -37,6 +43,9 @@ public class PolygonalLine {
      */
     public void addPoint(Point point) {
         // TODO: реализовать
+        if (point == null) {
+            throw new NullPointerException();
+        }
         this.points.add(new Point(point.getX(), point.getY()));
     }
 
