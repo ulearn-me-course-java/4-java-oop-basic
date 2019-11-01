@@ -5,6 +5,9 @@ public class Line {
     private Point pnt2;
 
     Line(Point pnt1, Point pnt2) {
+        if (pnt1 == null || pnt2 == null) {
+            throw new NullPointerException();
+        }
         this.pnt1 = pnt1;
         this.pnt2 = pnt2;
     }
@@ -18,10 +21,16 @@ public class Line {
     }
 
     public void setPnt1(Point pnt1) {
+        if (pnt1 == null) {
+            throw new NullPointerException();
+        }
         this.pnt1 = pnt1;
     }
 
     public void setPnt2(Point pnt2) {
+        if (pnt2 == null) {
+            throw new NullPointerException();
+        }
         this.pnt2 = pnt2;
     }
 
@@ -30,6 +39,9 @@ public class Line {
     }
 
     public boolean isCollinearLine(Point p) {
+        if (p == null) {
+            throw new NullPointerException();
+        }
         long y1 = (p.x - this.getPnt1().x) / (this.getPnt2().x - this.getPnt1().x);
         long y2 = (p.y - this.getPnt1().y) / (this.getPnt2().y - this.getPnt1().y);
         return y1 == y2;
