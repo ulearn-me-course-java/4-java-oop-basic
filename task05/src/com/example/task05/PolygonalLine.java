@@ -9,16 +9,15 @@ public class PolygonalLine {
 
     private List<Point> points = new ArrayList<Point>();
 
+    PolygonalLine() {
+    }
+    
     PolygonalLine(Point[] points) {
         if (points == null) {
-            throw new NullPointerException();
+            throw new IllegalArgumentException();
         }
         this.points = new ArrayList<Point>();
         setPoints(points);
-    }
-
-    PolygonalLine() {
-        points = new ArrayList<>();
     }
 
     /**
@@ -29,7 +28,7 @@ public class PolygonalLine {
     public void setPoints(Point[] points) {
         // TODO: реализовать
         if (points == null) {
-            throw new NullPointerException();
+            throw new IllegalArgumentException();
         }
         for (Point pnt : points) {
             this.points.add(new Point(pnt.getX(), pnt.getY()));
