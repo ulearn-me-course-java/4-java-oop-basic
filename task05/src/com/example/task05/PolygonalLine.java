@@ -1,22 +1,26 @@
 package com.example.task05;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Ломаная линия
  */
 public class PolygonalLine {
 
-    private ArrayList<Point> pointList;
+    private List<Point> pointList = new ArrayList<>();
 
     void setPoints(Point[] points) {
-        if (pointList.size()==0) {
+        if (points == null) {
+            throw new IllegalArgumentException();
+        }
+        if (pointList.size() == 0) {
             for (Point point : points) pointList.add(new Point(point.getX(), point.getY()));
         }
     }
 
-    PolygonalLine(){
-        pointList = new ArrayList<Point>();
+    PolygonalLine() {
+        ;
     }
 
     /**
@@ -25,7 +29,10 @@ public class PolygonalLine {
      * @param point точка, которую нужно добавить к ломаной
      */
     public void addPoint(Point point) {
-        pointList.add(new Point(point.getX(),point.getY()));
+        if (point == null) {
+            throw new IllegalArgumentException();
+        }
+        pointList.add(new Point(point.getX(), point.getY()));
     }
 
     /**
@@ -35,7 +42,7 @@ public class PolygonalLine {
      * @param y координата по оси ординат
      */
     public void addPoint(double x, double y) {
-        pointList.add(new Point(x,y));
+        pointList.add(new Point(x, y));
     }
 
     /**
@@ -44,9 +51,9 @@ public class PolygonalLine {
      * @return длину ломаной линии
      */
     public double getLength() {
-        double len=0;
-        for (int i = 0; i<pointList.size()-1;i++){
-            len+=pointList.get(i).getLength(pointList.get(i+1));
+        double len = 0;
+        for (int i = 0; i < pointList.size() - 1; i++) {
+            len += pointList.get(i).getLength(pointList.get(i + 1));
         }
         return len;
     }
