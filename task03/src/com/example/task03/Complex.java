@@ -15,19 +15,31 @@ public class Complex {
     }
 
     Complex(Complex complex) {
+        if(complex==null){
+            throw new IllegalArgumentException();
+        }
         this.x = complex.x;
         this.y = complex.y;
     }
 
     Complex add(Complex complex) {
+        if(complex==null){
+            throw new IllegalArgumentException();
+        }
         return new Complex(x + complex.x, y + complex.y);
     }
 
     Complex sub(Complex complex) {
+        if(complex==null){
+            throw new IllegalArgumentException();
+        }
         return new Complex(x - complex.x, y - complex.y);
     }
 
     Complex mul(Complex complex) {
+        if(complex==null){
+            throw new IllegalArgumentException();
+        }
         return new Complex(x * complex.x - y * complex.y, y * complex.x + x * complex.y);
     }
 
@@ -36,15 +48,14 @@ public class Complex {
     }
 
     Complex div(Complex complex) {
+        if(complex==null){
+            throw new IllegalArgumentException();
+        }
         return new Complex((x * complex.x + y * complex.y) / (complex.x * complex.x + complex.y * complex.y), (y * complex.x - x * complex.y) / (complex.x * complex.x + complex.y * complex.y));
     }
 
     Complex div(long a) {
         return new Complex(x / a, y / a);
-    }
-
-    boolean equal(Complex complex) {
-        return x == complex.x && y == complex.y;
     }
 
     public String toString() {

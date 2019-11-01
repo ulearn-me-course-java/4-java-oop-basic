@@ -18,6 +18,5 @@ public class Task03Main {
         System.out.println(a.toString());
         a = a.div(2);
         System.out.println(a.toString());
-        System.out.println(a.equal(b));
     }
 }
