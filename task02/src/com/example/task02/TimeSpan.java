@@ -60,12 +60,16 @@ public class TimeSpan {
     }
 
     void subtract(TimeSpan time) {
-        int sec = Math.abs((hours * 3600 + minutes * 60 + seconds) - (time.getHours() * 3600 + time.getMinutes() * 60 + time.getSeconds()));
-        hours = sec / 3600;
-        sec -= hours * 3600;
-        minutes = sec / 60;
-        sec -= minutes * 60;
-        seconds = sec;
+        int sec = (hours * 3600 + minutes * 60 + seconds) - (time.getHours() * 3600 + time.getMinutes() * 60 + time.getSeconds());
+        if (sec>=0) {
+            hours = sec / 3600;
+            sec -= hours * 3600;
+            minutes = sec / 60;
+            sec -= minutes * 60;
+            seconds = sec;
+        } else {
+            System.out.println("Time span cannot be negative");
+        }
     }
 
     public String toString() {
