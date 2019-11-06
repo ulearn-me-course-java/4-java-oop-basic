@@ -17,7 +17,7 @@ public class PolygonalLine {
         if (points == null) {
             throw new IllegalArgumentException();
         }
-        this.points = new ArrayList<Point>();
+        this.points = points;
         setPoints(points);
     }
 
