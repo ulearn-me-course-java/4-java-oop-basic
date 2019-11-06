@@ -11,14 +11,6 @@ public class PolygonalLine {
 
     PolygonalLine() {
     }
-    
-    PolygonalLine(Point[] points) {
-        if (points == null) {
-            throw new IllegalArgumentException();
-        }
-        this.points = new ArrayList<Point>();
-        setPoints(points);
-    }
 
     /**
      * Устанавливает точки ломаной линии
