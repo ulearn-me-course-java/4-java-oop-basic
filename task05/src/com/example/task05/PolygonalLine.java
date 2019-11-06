@@ -18,7 +18,7 @@ public class PolygonalLine {
             throw new IllegalArgumentException();
         }
         this.points = points;
-        setPoints(points);
+        setPoints(this.points);
     }
 
     /**
