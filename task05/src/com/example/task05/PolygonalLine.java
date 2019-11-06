@@ -13,14 +13,6 @@ public class PolygonalLine {
     PolygonalLine() {
     }
 
-    PolygonalLine(Point[] points) {
-        if (points == null) {
-            throw new IllegalArgumentException();
-        }
-        this.points = points;
-        setPoints(this.points);
-    }
-
     /**
      * Устанавливает точки ломаной линии
      * Если объект уже содержит какие-либо точки (поле points не пусто), точки не будут установлены
