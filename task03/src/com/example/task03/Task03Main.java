@@ -6,8 +6,5 @@ public class Task03Main {
         ComplexNumber z2 = new ComplexNumber(8.6f,11.1f);
         System.out.println(z1.add(z2));
         System.out.println(z1.multiply(z2));
-
-        System.out.println(z1.modulus());
-        System.out.println(z1.conjugate());
     }
 }
