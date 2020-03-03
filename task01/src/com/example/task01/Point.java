@@ -12,6 +12,10 @@ public class Point {
         this.y = y;
     }
 
+    public Point() {
+        this(0, 0);
+    }
+
     void flip() {
         int z = x;
         x = -y;
