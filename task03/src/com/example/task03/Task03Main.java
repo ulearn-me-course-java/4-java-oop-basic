@@ -32,9 +32,7 @@ class ComplexNumber{
     ComplexNumber sum(ComplexNumber number){
         return new ComplexNumber(this.re +number.re,this.im + number.im);
     }
-    ComplexNumber multiply(ComplexNumber number){
-        return new ComplexNumber(this.re * number.re - this.im * number.im, this.re * im + this.im * number.re);
-    }
+    ComplexNumber multiply(ComplexNumber number){ return new ComplexNumber(this.re * number.re - this.im * number.im, this.re * im + this.im * number.re); }
 
     @Override
     public String toString() {
