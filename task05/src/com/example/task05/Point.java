@@ -1,7 +1,5 @@
 package com.example.task05;
 
-import javafx.util.Pair;
-
 /**
  * Точка в двумерном пространстве
  */

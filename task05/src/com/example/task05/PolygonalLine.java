@@ -1,8 +1,5 @@
 package com.example.task05;
 
-
-import javafx.util.Pair;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
