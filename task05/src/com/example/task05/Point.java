@@ -1,9 +1,12 @@
 package com.example.task05;
 
+import javafx.util.Pair;
+
 /**
  * Точка в двумерном пространстве
  */
 public class Point {
+    final private double x, y;
 
     /**
      * Конструктор, инициализирующий координаты точки
@@ -12,7 +15,8 @@ public class Point {
      * @param y координата по оси ординат
      */
     public Point(double x, double y) {
-        throw new AssertionError();
+        this.x = x;
+        this.y = y;
     }
 
     /**
@@ -21,8 +25,7 @@ public class Point {
      * @return координату точки по оси X
      */
     public double getX() {
-        // TODO: реализовать
-        throw new AssertionError();
+        return x;
     }
 
     /**
@@ -31,8 +34,7 @@ public class Point {
      * @return координату точки по оси Y
      */
     public double getY() {
-        // TODO: реализовать
-        throw new AssertionError();
+        return y;
     }
 
     /**
@@ -42,8 +44,23 @@ public class Point {
      * @return расстояние от текущей точки до переданной
      */
     public double getLength(Point point) {
-        // TODO: реализовать
-        throw new AssertionError();
+        return Math.sqrt((point.x - x) * (point.x - x) + (point.y - y) * (point.y - y));
     }
 
+    public static double getLength(Point p1, Point p2) {
+        return p1.getLength(p2);
+    }
+
+    public static double getLength(Pair<Point, Point> pair) {
+        return getLength(pair.getKey(), pair.getValue());
+    }
+
+    public Point copy() {
+        return new Point(x, y);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("(%.2f; %.2f)", x, y);
+    }
 }
