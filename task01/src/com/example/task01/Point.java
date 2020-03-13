@@ -1,9 +1,6 @@
 
 package com.example.task01;
 
-/**
- * Класс точки на плоскости
- */
 public class Point {
    private int x;
    private int y;
