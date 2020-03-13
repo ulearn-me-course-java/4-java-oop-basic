@@ -31,3 +31,6 @@ subprojects {
         compile group: 'org.assertj', name: 'assertj-core', version: '3.10.0'
     }
 }
+
+dependencies {
+}

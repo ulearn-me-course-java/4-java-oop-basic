@@ -35,6 +35,8 @@ public class TimeSpan {
         this.seconds = seconds;
     }
 
+    //по хорошему бы сюда @notnull,
+    // но нужно настраивать проект,а часики тикают
     void add(TimeSpan time) {
         hours += time.hours;
         minutes += time.minutes;
@@ -47,6 +49,7 @@ public class TimeSpan {
         seconds -= time.seconds;
     }
 
+    @Override
     public String toString() {
         return String.format("%d:%d:%d", hours, minutes, seconds);
     }
