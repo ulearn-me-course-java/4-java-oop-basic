@@ -15,7 +15,6 @@ public class Point {
     public Point(double x, double y) {
         this.x = x;
         this.y = y;
-        throw new AssertionError();
 
     }
     public double getX() {
@@ -37,6 +36,10 @@ public class Point {
      * @param point вторая точка отрезка
      * @return расстояние от текущей точки до переданной
      */
+    public String toString() {
+        return String.format("(%f, %f)", x, y);
+    }
+
     public double getLength(Point point) {
         return Math.sqrt(Math.pow(x- point.x,2)+Math.pow(y- point.y,2));
     }
