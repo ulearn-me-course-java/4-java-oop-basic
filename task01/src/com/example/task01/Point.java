@@ -7,8 +7,8 @@ public class Point {
     int x;
     int y;
 
-    void point(int newX, int newY){
-        x= newX;
+    public void Point(int newX, int newY){
+        x = newX;
         y = newY;
     }
     void flip(){
