@@ -50,6 +50,23 @@ public class ComplexNumber {
     }
 
     public String toString() {
-        return String.format("%s + %si", realPart, imaginaryPart);
+        if(imaginaryPart > 0 && realPart > 0){
+            return String.format("%s + %si", realPart, imaginaryPart);
+        }
+        if(imaginaryPart < 0 && realPart > 0) {
+            return String.format("%s - %si", realPart, Math.abs(imaginaryPart));
+        }
+        if(realPart == 0 && imaginaryPart == 0){
+            return "0";
+        }
+
+        if(realPart == 0d){
+            return String.format("%si", imaginaryPart);
+        }
+        return realPart + "";
+    }
+
+    public void print(){
+        System.out.println(this.toString());
     }
 }
