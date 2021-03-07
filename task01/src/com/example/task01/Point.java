@@ -19,9 +19,9 @@ public class Point {
     }
 
     public double distance(Point point){
-        int firstKatet = Math.abs(this.x - point.x);
-        int secondKatet = Math.abs(this.y - point.y);
-        return Math.sqrt(Math.pow(firstKatet, 2) + Math.pow(secondKatet, 2));
+        int firstCathetus = Math.abs(this.x - point.x);
+        int secondCathetus = Math.abs(this.y - point.y);
+        return Math.sqrt(Math.pow(firstCathetus, 2) + Math.pow(secondCathetus, 2));
     }
 
     public String toString(){
