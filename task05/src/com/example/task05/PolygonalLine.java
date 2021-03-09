@@ -8,7 +8,7 @@ import java.util.List;
  * Ломаная линия
  */
 public class PolygonalLine {
-    private ArrayList<Point> points = new ArrayList<>();
+    private final ArrayList<Point> points = new ArrayList<>();
     /**
      * Устанавливает точки ломаной линии
      *
