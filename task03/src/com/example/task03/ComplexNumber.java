@@ -17,6 +17,10 @@ public class ComplexNumber {
     public static ComplexNumber mult(ComplexNumber n1, ComplexNumber n2){
         return new ComplexNumber(n1.getRe() * n2.getRe() - n1.getIm() * n2.getIm(), n1.getRe() * n2.getIm() + n1.getIm() * n2.getRe());
     }
+    @Override
+    public String toString(){
+        return this.re + " + " + im + "i";
+    }
 
     public double getRe(){
         return re;
