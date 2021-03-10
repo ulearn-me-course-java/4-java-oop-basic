@@ -15,6 +15,6 @@ public class Line {
     }
 
     public boolean isCollinearLine(Point p){
-        return (p.x-p1.x)/(p2.x- p1.x) == (p.y- p1.y)/(p2.y- p1.y);
+        return Math.abs(p.distance(p1) + p.distance(p2) - p1.distance(p2)) < 1e-5;
     }
 }
