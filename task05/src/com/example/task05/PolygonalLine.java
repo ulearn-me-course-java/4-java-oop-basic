@@ -19,10 +19,11 @@ public class PolygonalLine {
         int count = 0;
 
         for (Point pointC : points) {
-            this.points[count++] = pointC;
+            pointsNew[count++] = pointC;
         }
 
-        points[count] = point;
+        pointsNew[count] = point;
+        this.points = pointsNew;
     }
 
 
@@ -34,21 +35,29 @@ public class PolygonalLine {
         int count = 0;
 
         for (Point pointC : points) {
-            this.points[count++] = pointC;
+            pointsNew[count++] = pointC;
         }
 
-        points[count] = point;
+        pointsNew[count] = point;
+        this.points = pointsNew;
     }
 
     public double getLength() {
         double length = 0;
-        for (int count = 0; count < points.length; count++) {
+        for (int count = 0; count < points.length - 1; count++) {
             Point p1 = points[count];
             Point p2 = points[count + 1];
 
             length += p1.getLength(p2);
-            System.out.println(length);
         }
         return length;
+    }
+
+    public void getPoints() {
+        for (Point point : points) {
+            System.out.println(point.getX());
+            System.out.println(point.getY());
+            System.out.println("-----");
+        }
     }
 }
