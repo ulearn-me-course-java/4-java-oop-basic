@@ -10,9 +10,7 @@ public class Task05Main {
                 new Point(15, 16),
         };
         PolygonalLine line = new PolygonalLine();
-        for (Point p : points) {
-            line.addPoint(p);
-        }
+        line.setPoints(points);
         System.out.println(line.getLength());
     }
 }

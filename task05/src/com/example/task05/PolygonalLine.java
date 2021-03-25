@@ -1,35 +1,26 @@
 package com.example.task05;
+import java.util.ArrayList;
 /**
  * Ломаная линия
  */
 public class PolygonalLine {
 
-    private Point[] points = new Point[0];
+    private ArrayList<Point> points = new ArrayList<>();
     /**
      * Устанавливает точки ломаной линии
      *
      * @param points массив точек, которыми нужно проинициализировать ломаную линию
      */
-    public void setPoints(Point[] points) {
-        // TODO: реализовать
-        this.points = new Point[points.length];
-        for (int i = 0; i < points.length; i++){
-            this.points[i] = new Point(points[i].getX(), points[i].getY());
-        }
+    public void setPoints(Point... points) {
+        for (Point p : points)
+            addPoint(p);
     }
 
     /**
      * @param point точка, которую нужно добавить к ломаной
      */
     public void addPoint(Point point) {
-        // TODO: реализовать
-        Point[] arr = new Point[points.length + 1];
-        int i = 0;
-        for (; i < points.length; i++){
-            arr[i] = new Point(points[i].getX(), points[i].getY());
-        }
-        arr[i] = new Point(point.getX(), point.getY());
-        points = arr;
+        points.add(new Point(point.getX(), point.getY()));
     }
 
     /**
@@ -37,26 +28,21 @@ public class PolygonalLine {
      * @param y координата по оси ординат
      */
     public void addPoint(double x, double y) {
-        // TODO: реализовать
-        Point[] arr = new Point[points.length + 1];
-        int i = 0;
-        for (; i < points.length; i++){
-            arr[i] = points[i];
-        }
-        arr[i] = new Point(x, y);
-        points = arr;
+        points.add(new Point(x, y));
     }
 
     /**
      * @return длину ломаной линии
      */
     public double getLength() {
-        // TODO: реализовать
         double length = 0;
-        for (int i = 0; i < points.length-1; i++) {
-            length += points[i].getLength(points[i+1]);
+        Point previous = null;
+        for (Point p : points) {
+            if (previous != null)
+                length += previous.getLength(p);
+            previous = p;
+
         }
         return length;
     }
-
 }

@@ -23,7 +23,6 @@ public class Point {
      * @return координату точки по оси X
      */
     public double getX() {
-        // TODO: реализовать
         return x;
     }
 
@@ -33,7 +32,6 @@ public class Point {
      * @return координату точки по оси Y
      */
     public double getY() {
-        // TODO: реализовать
         return y;
     }
 
@@ -44,10 +42,7 @@ public class Point {
      * @return расстояние от текущей точки до переданной
      */
     public double getLength(Point point) {
-        // TODO: реализовать
-        double firstCathetus = this.x - point.x;
-        double secondCathetus = this.y - point.y;
-        return Math.sqrt(firstCathetus * firstCathetus + secondCathetus * secondCathetus);
+        return Math.sqrt(Math.pow(x - point.x, 2) + Math.pow(y - point.y, 2));
     }
 
 }
