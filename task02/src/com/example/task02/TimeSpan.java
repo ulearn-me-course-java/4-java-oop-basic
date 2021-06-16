@@ -1,97 +1,86 @@
 package com.example.task02;
 
 public class TimeSpan {
-    private int seconds;
-    private int minutes;
     private int hours;
-
-    public TimeSpan(int hours, int minutes, int seconds) throws Exception {
-        setHours(hours);
-        setMinutes(minutes);
-        setSeconds(seconds);
-    }
+    private int minutes;
+    private int seconds;
 
     public int getHours() {
         return hours;
     }
 
-    public void setHours(int hours) throws Exception {
-        if (hours < 0) {
-            throw new Exception("Hours must not be negative");
+    public void setHours(int hours) {
+        if (hours >= 0) {
+            this.hours = hours;
         }
-        this.hours = hours;
     }
 
     public int getMinutes() {
         return minutes;
     }
 
-    public void setMinutes(int minutes) throws Exception  {
-        if (minutes < 0) {
-            throw new Exception("Minutes must not be negative");
+    public void setMinutes(int minutes) {
+        if (minutes >= 0 && minutes < 60) {
+            this.minutes = minutes;
         }
-        else if (minutes > 59) {
-            throw new Exception("Minutes must not be more than 59");
-        }
-        this.minutes = minutes;
     }
 
     public int getSeconds() {
         return seconds;
     }
 
-    public void setSeconds(int seconds) throws Exception {
-        if (seconds < 0) {
-            throw new Exception("Seconds must not be negative");
+    public void setSeconds(int seconds) {
+        if (seconds >= 0 && seconds < 60) {
+            this.seconds = seconds;
         }
-        else if (seconds > 59) {
-            throw new Exception("Seconds must not be more than 59");
-        }
+    }
+
+    public TimeSpan(int hours, int minutes, int seconds) {
+        this.hours = hours;
+        this.minutes = minutes;
         this.seconds = seconds;
+        setNormalTime();
     }
 
     public void add(TimeSpan time) {
-        if (time.getSeconds() + seconds > 59){
-            minutes++;
-            seconds = (time.getSeconds() + seconds) % 60;
-        }
-        else {
-            seconds += time.getSeconds();
-        }
-        if (time.getMinutes() + minutes > 59){
-            hours++;
-            minutes = (time.getMinutes() + minutes) % 60;
-        }
-        else {
-            minutes += time.getMinutes();
-        }
-        hours += time.getHours();
+        hours += time.hours;
+        minutes += time.minutes;
+        seconds += time.seconds;
+        setNormalTime();
     }
 
-    public void subtract(TimeSpan time) throws Exception {
-        if (seconds - time.getSeconds() < 0) {
-            seconds = 60 - (time.getSeconds() - seconds);
-            minutes--;
-        }
-        else {
-            seconds -= time.getSeconds();
-        }
-        if (minutes - time.getMinutes() < 0) {
-            minutes = 60 - (time.getMinutes() - minutes);
-            hours--;
-        }
-        else {
-            minutes -= time.getMinutes();
-        }
-        if (hours - time.getHours() < 0) {
-            throw new Exception("The operation resulted in a negative time. Time must not be negative");
-        }
-        else {
-            hours -= time.getHours();
-        }
+    public void subtract(TimeSpan time) {
+        hours -= time.hours;
+        minutes -= time.minutes;
+        seconds -= time.seconds;
+
+        setNormalTime();
     }
 
     public String toString() {
-        return String.format("%d:%02d:%02d", hours, minutes, seconds);
+        return String.format("%dh:%dm:%ds", hours, minutes, seconds);
+    }
+
+    private void setNormalTime() {
+        minutes += seconds / 60;
+        seconds = seconds % 60;
+        hours += minutes / 60;
+        minutes = minutes % 60;
+
+        if (seconds < 0) {
+            minutes -= 1;
+            seconds = 60 + seconds;
+        }
+
+        if (minutes < 0) {
+            hours -= 1;
+            minutes = 60 + minutes;
+        }
+
+        if (hours < 0) {
+            hours = 0;
+            minutes = 0;
+            seconds = 0;
+        }
     }
 }
