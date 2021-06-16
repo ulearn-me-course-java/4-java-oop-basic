@@ -1,7 +1,7 @@
 package com.example.task02;
 
 public class Task02Main {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         TimeSpan timeSpan1 = new TimeSpan(10,59,59);
         timeSpan1.add(new TimeSpan(0,59,59));
         System.out.println(timeSpan1.toString());
