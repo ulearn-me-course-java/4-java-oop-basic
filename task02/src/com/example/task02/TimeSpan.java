@@ -14,7 +14,7 @@ public class TimeSpan {
         editTime(-time.hour,-time.min,-time.sec);
     }
     public String toString(){
-        return  "";
+        return  String.format("seconds %d, minutes %d, hours %d", sec, min, hour);
     }
 
     void editTime(int hour,int min,int sec){
