@@ -1,10 +1,11 @@
 package com.example.task02;
 
 public class Task02Main {
-    public static void main(String[] args) {
-        TimeSpan time = new TimeSpan(40, 50, 50);
-        TimeSpan time2 = new TimeSpan(30, 20, 85);
-        time.add(time2);
+    public static void main(String[] args) throws Exception {
+        TimeSpan time = new TimeSpan(50, 30, 50);
+        TimeSpan time2 = new TimeSpan(30, 40, 85);
+
+        time.subtract(time2);
         System.out.println(time.toString());
     }
 }
@@ -57,28 +58,23 @@ class TimeSpan{
         correctTime();
     }
     public void subtract(TimeSpan time) throws Exception {
-        if(time.hour > hour){
-            time.hour -= hour;
-            hour = 0;
-            time.minute += time.hour * 60;
-            time.hour = 0;
-        }
-        else
-            hour -= time.hour;
 
-        if(time.minute > minute){
-            time.minute -= minute;
-            minute = 0;
-            time.second += time.minute * 60;
-            time.minute = 0;
-        }
-        else
-            minute -= time.minute;
+        this.minute += this.hour * 60;
+        this.hour = 0;
+        this.second += this.minute * 60;
+        this.minute = 0;
 
-        if(time.second > second)
-            throw new Exception("Invalid time");
-        else
-            second -= time.second;
+        time.minute += time.hour * 60;
+        time.hour = 0;
+        time.second += time.minute * 60;
+        time.minute = 0;
+
+        if(time.second > this.second)
+            throw new Exception("Time not correct");
+
+        this.second -= time.second;
+
+        correctTime();
 
     }
 
