@@ -1,9 +1,11 @@
 package com.example.task05;
 
+import java.util.concurrent.atomic.AtomicLongArray;
+
 /**
  * Точка в двумерном пространстве
  */
-public class Point {
+public class Point implements Cloneable {
     /**
      * @param x поле которое хранит координату x точки на плоскости
      * @param x поле которое хранит координату y точки на плоскости
@@ -46,5 +48,10 @@ public class Point {
      */
     public double getLength(Point point) {
         return Math.sqrt(Math.pow(point.x - x, 2) + Math.pow(point.y - y, 2));
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }
