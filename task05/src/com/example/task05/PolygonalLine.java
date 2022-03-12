@@ -1,25 +1,27 @@
 package com.example.task05;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
 
 /**
  * Ломаная линия
  */
 public class PolygonalLine {
     /**
-     * @param points массив точек ломанной линии
+     * @serial неизменяемый лист точек ломанной линии
      */
-    private List<Point> points;
+    private final List<Point> points = new ArrayList<>();
     /**
      * Устанавливает точки ломаной линии
      *
      * @param points массив точек, которыми нужно проинициализировать ломаную линию
      */
     public void setPoints(Point[] points) {
-        this.points = Arrays.asList(points);
+        this.points.clear();
+        for (Point p:
+             points) {
+            this.points.add(p.clone());
+        }
     }
 
     /**
@@ -28,7 +30,7 @@ public class PolygonalLine {
      * @param point точка, которую нужно добавить к ломаной
      */
     public void addPoint(Point point) {
-        points.add(point);
+        points.add(point.clone());
     }
 
     /**
@@ -48,7 +50,6 @@ public class PolygonalLine {
      */
     public double getLength() {
         double accumulator = 0;
-        Stream<Point> enumerator = points.stream();
         if (points.size() >= 2){
             for(int i = 1; i < points.size(); i++)
                 accumulator += points.get(i - 1).getLength(points.get(i));

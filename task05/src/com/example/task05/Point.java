@@ -5,10 +5,10 @@ import java.util.concurrent.atomic.AtomicLongArray;
 /**
  * Точка в двумерном пространстве
  */
-public class Point implements Cloneable {
+public class Point {
     /**
-     * @param x поле которое хранит координату x точки на плоскости
-     * @param x поле которое хранит координату y точки на плоскости
+     * @serial поле которое хранит координату x точки на плоскости
+     * @serial поле которое хранит координату y точки на плоскости
      */
     private double x, y;
     /**
@@ -51,7 +51,7 @@ public class Point implements Cloneable {
     }
 
     @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
+    protected Point clone() {
+        return new Point(x, y);
     }
 }
