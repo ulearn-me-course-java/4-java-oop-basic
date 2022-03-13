@@ -11,8 +11,11 @@ public class Point {
      * @param x координата по оси абсцисс
      * @param y координата по оси ординат
      */
+    private double x;
+    private double y;
     public Point(double x, double y) {
-        throw new AssertionError();
+        this.x = x;
+        this.y = y;
     }
 
     /**
@@ -22,7 +25,7 @@ public class Point {
      */
     public double getX() {
         // TODO: реализовать
-        throw new AssertionError();
+        return this.x;
     }
 
     /**
@@ -32,7 +35,7 @@ public class Point {
      */
     public double getY() {
         // TODO: реализовать
-        throw new AssertionError();
+        return this.y;
     }
 
     /**
@@ -43,7 +46,28 @@ public class Point {
      */
     public double getLength(Point point) {
         // TODO: реализовать
-        throw new AssertionError();
+       double distance;
+        double x;
+        double y;
+
+        if(this.x > point.x)
+        {
+            x = this.x - point.x;
+        }
+        else
+        {
+            x = point.x - this.x;
+        }
+        if(this.y > point.y)
+        {
+            y = this.y - point.y;
+        }
+        else
+        {
+            y = point.y - this.y;
+        }
+        distance = Math.sqrt((Math.pow(x, 2) + Math.pow(y, 2)));
+        return distance;
     }
 
 }
