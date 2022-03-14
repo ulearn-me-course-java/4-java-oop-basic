@@ -21,6 +21,6 @@ public class Line {
     }
 
     public Boolean isCollinearLine(Point p) {
-        return THICKNESS > Math.abs((p.X - firstPoint.X) / (p.Y - firstPoint.Y) - (secondPoint.X - firstPoint.X) / (secondPoint.Y - firstPoint.Y));
+        return THICKNESS > Math.abs((p.x - firstPoint.x) / (p.y - firstPoint.y) - (secondPoint.x - firstPoint.x) / (secondPoint.y - firstPoint.y));
     }
 }
