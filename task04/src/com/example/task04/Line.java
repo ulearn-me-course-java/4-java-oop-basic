@@ -27,7 +27,7 @@ public class Line {
 
     public boolean isCollinearLine(Point p) {
         int k = (p2.y - p1.y) / (p2.x - p1.x);
-        int b = p2.y - k * p1.x;
+        int b = p2.y - k * p2.x;
 
         if (p.y == p.x * k + b)
             return true;
