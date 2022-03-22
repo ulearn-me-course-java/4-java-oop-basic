@@ -11,12 +11,12 @@ public class PolygonalLine {
 
     public void setPoints(Point[] points) {
         for (Point point : points){
-            line.add(point);
+            line.add(new Point(point.getX(), point.getY()));
         }
     }
 
     public void addPoint(Point point) {
-        line.add(point);
+        line.add(new Point(point.getX(), point.getY()));
     }
 
     public void addPoint(double x, double y) {
