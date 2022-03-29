@@ -27,7 +27,6 @@ public class PolygonalLine {
 
     /**
      * Добавляет точку к ломаной линии
-     *
      * @param point точка, которую нужно добавить к ломаной
      */
     public void addPoint(Point point) {
