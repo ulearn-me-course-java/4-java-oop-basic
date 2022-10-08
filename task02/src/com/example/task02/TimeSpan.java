@@ -69,7 +69,7 @@ public class TimeSpan {
     }
 
     public String toString(){
-        return String.format("(%d, %d, %d)", seconds, minutes, hours);
+        return String.format("seconds - %d ,minutes - %d,hours - %d", seconds, minutes, hours);
     }
 
     void subtract(TimeSpan time){
