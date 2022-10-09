@@ -1,6 +1,6 @@
 package com.example.task05;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 
 /**
  * Ломаная линия
@@ -12,21 +12,16 @@ public class PolygonalLine {
      *
      * @param points массив точек, которыми нужно проинициализировать ломаную линию
      */
+    private final ArrayList<Point> points = new ArrayList<>();
 
-    /**
-     * Тестирование модификации массива точек.
-     * Если этот метод падает, то скорее всего некорректно реализован метод {@link PolygonalLine#setPoints(Point[])}, который
-     * заменяет внутренний массив на переданный. Корректная реализация должна копировать элементы массив, не используя переданный
-     * массив в качестве хранилища
-     */
     public void setPoints(Point[] points) {
-        this.points = new Point[points.length];
-        System.arraycopy(points, 0, this.points, 0, points.length);
+        for (Point point:points) {
+            this.points.add(new Point(point.getX(), point.getY()));
+        }
     }
-    private Point[] points;
 
-    public PolygonalLine() {
-    }
+
+    public PolygonalLine() {}
 
     /**
      * Добавляет точку к ломаной линии
@@ -42,22 +37,7 @@ public class PolygonalLine {
      * внешней модификации ее составляющих точек.
      */
     public void addPoint(Point point) {
-        if (this.points == null){
-            this.points = new Point[]{point};
-        }
-        else {
-            Point[] temp = this.points;
-
-            this.points = new Point[this.points.length + 1];
-
-            for (int i = 0; i < this.points.length - 1;) {
-                for (Point p : temp) {
-                    this.points[i] = p;
-                    i++;
-                }
-            }
-            this.points[points.length - 1] = point;
-        }
+        this.points.add(new Point(point.getX(), point.getY()));
     }
 
     /**
@@ -77,10 +57,12 @@ public class PolygonalLine {
      */
     public double getLength() {
         double len = 0;
-        for (int i = 0; i < this.points.length - 1; i++) {
-            len += points[i].getLength(points[i+1]);
+//        for (int i = 0; i < this.points.length - 1; i++) {
+//            len += points[i].getLength(points[i+1]);
+//        }
+        for (int i = 0; i < this.points.size() - 1; i++) {
+            len += this.points.get(i).getLength(this.points.get(i + 1));
         }
-
         return len;
     }
 
