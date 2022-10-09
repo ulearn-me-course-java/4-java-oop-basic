@@ -1,49 +1,35 @@
 package com.example.task05;
+    public class Point {
+        private final double x;
+        private final double y;
 
-/**
- * Точка в двумерном пространстве
- */
-public class Point {
+        public Point(double x, double y) {
+            this.x = x;
+            this.y = y;
+        }
 
-    /**
-     * Конструктор, инициализирующий координаты точки
-     *
-     * @param x координата по оси абсцисс
-     * @param y координата по оси ординат
-     */
-    public Point(double x, double y) {
-        throw new AssertionError();
-    }
+        public Point copy()
+        {
+            return new Point(this.x, this.y);
+        }
+        public double getX(){
+            return this.x;
+        }
+        public double getY(){
+            return this.y;
+        }
+        void print() {
+            String pointToString = String.format("(%d, %d)", this.x, this.y);
+            System.out.println(pointToString);
+        }
 
-    /**
-     * Возвращает координату точки по оси абсцисс
-     *
-     * @return координату точки по оси X
-     */
-    public double getX() {
-        // TODO: реализовать
-        throw new AssertionError();
-    }
+        double getLength(Point point) {
+            return Math.sqrt(Math.pow((this.x - point.x), 2.0) + Math.pow((this.y - point.y), 2.0));
+        }
 
-    /**
-     * Возвращает координату точки по оси ординат
-     *
-     * @return координату точки по оси Y
-     */
-    public double getY() {
-        // TODO: реализовать
-        throw new AssertionError();
-    }
-
-    /**
-     * Подсчитывает расстояние от текущей точки до точки, переданной в качестве параметра
-     *
-     * @param point вторая точка отрезка
-     * @return расстояние от текущей точки до переданной
-     */
-    public double getLength(Point point) {
-        // TODO: реализовать
-        throw new AssertionError();
-    }
-
+        public String toString() {
+            String x = Double.toString(getX());
+            String y = Double.toString(getY());
+            return x + "," + y;
+        }
 }

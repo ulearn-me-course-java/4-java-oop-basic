@@ -161,7 +161,7 @@ public class Tests {
                 e.printStackTrace();
             }
         }
-        Assert.assertTrue("Модификация точки приводит к модификации ломаной линии", Math.abs(expected - line.getLength()) < 1e-8);
+         Assert.assertTrue("Модификация точки приводит к модификации ломаной линии", Math.abs(expected - line.getLength()) < 1e-8);
     }
 
     /**
