@@ -5,42 +5,51 @@ package com.example.task05;
  */
 public class PolygonalLine {
 
-    /**
-     * Устанавливает точки ломаной линии
-     *
-     * @param points массив точек, которыми нужно проинициализировать ломаную линию
-     */
+    private Point[] points = new Point[]{};
     public void setPoints(Point[] points) {
-        // TODO: реализовать
+
+       this.points = new Point[points.length];
+       int i = 0;
+        for (Point point : points) {
+            this.points[i] = new Point(point.getX(), point.getY());
+            i++;
+        }
     }
 
-    /**
-     * Добавляет точку к ломаной линии
-     *
-     * @param point точка, которую нужно добавить к ломаной
-     */
     public void addPoint(Point point) {
-        // TODO: реализовать
+        if(point!=null){
+            Point[] pointsNew = new Point[points.length+1];
+            for (int i=0; i<pointsNew.length; i++){
+                if(i!=points.length)
+                    pointsNew[i]=points[i];
+                else
+                    pointsNew[i]=point;
+            }
+            setPoints(pointsNew);
+        }
     }
 
-    /**
-     * Добавляет точку к ломаной линии
-     *
-     * @param x координата по оси абсцисс
-     * @param y координата по оси ординат
-     */
     public void addPoint(double x, double y) {
-        // TODO: реализовать
+        Point point = new Point(x,y);
+        if(x!=0 && y!=0){
+            Point[] pointsNew = new Point[points.length+1];
+            for (int i=0; i<pointsNew.length; i++){
+                if(i!=points.length)
+                    pointsNew[i]=points[i];
+                else
+                    pointsNew[i]=point;
+            }
+            setPoints(pointsNew);
+        }
     }
 
-    /**
-     * Возвращает длину ломаной линии
-     *
-     * @return длину ломаной линии
-     */
+
     public double getLength() {
-        // TODO: реализовать
-        throw new AssertionError();
+        double result=0;
+        for (int i=1; i<points.length; i++){
+            result+= points[i-1].getLength(points[i]);
+        }
+        return result;
     }
 
 }
