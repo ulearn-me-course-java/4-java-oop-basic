@@ -8,6 +8,11 @@ public class Task01Main {
         Point p2 = new Point();
         p2.x = 78;
         p2.y = 12;
+        p1.flip();
+        System.out.println(p1.distance(p2));
+        System.out.println( p1.toString());
+
+
 
         System.out.println("Point 1:");
         p1.print();
