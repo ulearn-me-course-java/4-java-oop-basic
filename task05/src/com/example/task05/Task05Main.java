@@ -12,7 +12,7 @@ public class Task05Main {
         PolygonalLine polyLine = new PolygonalLine();
         polyLine.setPoints(points);
 
-        System.out.println(polyLine.toString());
+        System.out.println(polyLine);
 
         System.out.println(polyLine.getLength());
     }

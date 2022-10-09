@@ -1,19 +1,20 @@
 package com.example.task05;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
  * Ломаная линия
  */
 public class PolygonalLine {
-    private List<Point> points = new ArrayList<Point>();
+    private List<Point> points = new ArrayList<>();
     /**
      * Устанавливает точки ломаной линии
      *
      * @param points массив точек, которыми нужно проинициализировать ломаную линию
      */
     public void setPoints(Point[] points) {
+        this.points = new ArrayList<>();
+
         for (Point point: points) {
             this.points.add(point.clone());
         }
@@ -53,11 +54,11 @@ public class PolygonalLine {
     }
 
     public String toString() {
-        String out = "";
+        StringBuilder out = new StringBuilder();
         for (int i = 0; i < points.size(); i++) {
-            out += String.format("p%d %s\n", i, points.get(i).toString());
+            out.append(String.format("p%d %s\n", i, points.get(i)));
         }
 
-        return out;
+        return out.toString();
     }
 }

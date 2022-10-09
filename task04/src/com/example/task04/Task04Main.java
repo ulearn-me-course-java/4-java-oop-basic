@@ -7,7 +7,7 @@ public class Task04Main {
 
         Line line = new Line(p1, p2);
 
-        System.out.println(line.toString());
+        System.out.println(line);
 
         System.out.println(line.isCollinearLine(new Point(9, 0)));  //true
         System.out.println(line.isCollinearLine(new Point(15, 0))); //false
