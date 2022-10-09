@@ -11,6 +11,7 @@ public class Point {
      * @param x координата по оси абсцисс
      * @param y координата по оси ординат
      */
+
     private final double x;
     private final double y;
     public Point(double x, double y) {
