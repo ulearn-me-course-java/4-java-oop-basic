@@ -21,12 +21,8 @@ public class ComplexN {
         return new ComplexN(realPart * num.realPart - imaginaryPart * num.imaginaryPart, realPart * num.imaginaryPart + imaginaryPart * num.realPart);
     }
 
-    public String toStringAdd() {
+    public String toString() {
 
         return String.format("%s + %si)",realPart,imaginaryPart);
-    }
-    public String toStringMulti() {
-
-        return String.format("%s * %si)",realPart,imaginaryPart);
     }
 }

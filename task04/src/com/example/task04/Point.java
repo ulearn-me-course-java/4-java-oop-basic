@@ -9,10 +9,12 @@ public final class Point {
     }
 
     public int GetX() {
+
         return x;
     }
 
     public int GetY() {
+
         return y;
     }
 

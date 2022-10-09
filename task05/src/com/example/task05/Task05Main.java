@@ -11,7 +11,7 @@ public class Task05Main {
                 new Point(25,12)
         };
 
-        PolygonalLine l = new PolygonalLine();
+        PolygonalLine l = new PolygonalLine(points);
         for (int i = 0; i < points.length; i++) {
             l.addPoint(points[i]);
         }

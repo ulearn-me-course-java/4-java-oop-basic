@@ -11,8 +11,8 @@ public class Point {
      * @param x координата по оси абсцисс
      * @param y координата по оси ординат
      */
-    double x;
-    double y;
+    private double x;
+    private double y;
     public Point(double x, double y) {
 
         this.x = x;

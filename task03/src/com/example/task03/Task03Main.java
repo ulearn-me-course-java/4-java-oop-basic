@@ -21,8 +21,8 @@ public class Task03Main {
         ComplexN num1 = new ComplexN(number1Real, number1Im);
         ComplexN num2 = new ComplexN(number2Real, number2Im);
 
-        System.out.println(num1.Add(num2).toStringAdd());
-        System.out.println(num1.Multi(num2).toStringMulti());
+        System.out.println(num1.Add(num2).toString());
+        System.out.println(num1.Multi(num2).toString());
 
 
     }

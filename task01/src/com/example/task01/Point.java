@@ -6,9 +6,12 @@ package com.example.task01;
 public class Point {
     int x;
     int y;
-    public Point() {
+    public Point(int x, int y) {
         this.x=x;
         this.y=y;
+    }
+    public Point() {
+
     }
 
     void print() {
@@ -16,11 +19,15 @@ public class Point {
         System.out.println(pointToString);
     }
 
+    public Point createPoint(int x, int y) {
+        return new Point(x,y);
+    }
+
 
     public void flip() {
 
         int temp = x;
-        x = y;
+        x = -y;
         y = -temp;
     }
     public double distance(Point point) {
