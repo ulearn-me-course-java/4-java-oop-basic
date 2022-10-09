@@ -1,12 +1,20 @@
-package com.example.task01;
+package com.example.task04;
 
 public class Point {
-    int x;
-    int y;
+    private int x;
+    private int y;
 
-    Point (int x, int y) {
+    Point(int x, int y) {
         this.x = x;
         this.y = y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 
     void print() {
