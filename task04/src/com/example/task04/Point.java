@@ -1,8 +1,8 @@
 package com.example.task04;
 
 public class Point {
-    final int x;
-    final int y;
+    final double x;
+    final double y;
 
     public Point(int x, int y) {
         this.x = x;
@@ -20,8 +20,8 @@ public class Point {
     }
 
     public String toString() {
-        String x = Integer.toString(this.x);
-        String y = Integer.toString(this.y);
+        String x = Double.toString(this.x);
+        String y = Double.toString(this.y);
         return x + "," + y;
     }
 }
