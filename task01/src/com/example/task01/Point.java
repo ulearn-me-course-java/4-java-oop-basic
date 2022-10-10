@@ -4,9 +4,9 @@ package com.example.task01;
  * Класс точки на плоскости
  */
 public class Point {
-    double x;
-    double y;
-    public Point(double x, double y)
+    int x;
+    int y;
+    public Point(int x, int y)
     {
         this.x = x;
         this.y = y;
@@ -16,7 +16,7 @@ public class Point {
         System.out.println(pointToString);
     }
     void flip(){
-        double temp = this.x;
+        int temp = this.x;
         this.x = -y;
         this.y = -temp;
     }
@@ -24,8 +24,8 @@ public class Point {
         return Math.sqrt(Math.pow((this.x - point.x), 2) + Math.pow((this.y - point.y), 2));
     }
     public String toString(){
-        String x = Double.toString(this.x);
-        String y = Double.toString(this.y);
+        String x = Integer.toString(this.x);
+        String y = Integer.toString(this.y);
         return x + "," + y;
     }
 }
