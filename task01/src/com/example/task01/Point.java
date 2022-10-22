@@ -11,9 +11,11 @@ public class Point {
         x = xcoord;
         y = ycoord;
     }
-    Point(){
+
+    public Point() {
 
     }
+
     public void flip(){
         int temp = x;
         x = -y;
