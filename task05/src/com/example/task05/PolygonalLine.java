@@ -3,6 +3,11 @@ package com.example.task05;
 /**
  * Ломаная линия
  */
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class PolygonalLine {
 
     /**
@@ -10,8 +15,22 @@ public class PolygonalLine {
      *
      * @param points массив точек, которыми нужно проинициализировать ломаную линию
      */
+    private final List<Point> points;
+
+    public PolygonalLine(Point[] points) {
+
+        this.points = Arrays.asList(points);
+    }
+
+    public PolygonalLine() {
+        points = new ArrayList<>();
+    }
+
     public void setPoints(Point[] points) {
         // TODO: реализовать
+        for (Point point : points) {
+            addPoint(point);
+        }
     }
 
     /**
@@ -21,6 +40,7 @@ public class PolygonalLine {
      */
     public void addPoint(Point point) {
         // TODO: реализовать
+        points.add(new Point(point.getX(), point.getY()));
     }
 
     /**
@@ -31,6 +51,7 @@ public class PolygonalLine {
      */
     public void addPoint(double x, double y) {
         // TODO: реализовать
+        points.add(new Point(x, y));
     }
 
     /**
@@ -40,7 +61,13 @@ public class PolygonalLine {
      */
     public double getLength() {
         // TODO: реализовать
-        throw new AssertionError();
+        double length = 0;
+        if (points.size() > 1) {
+            for (int i = 1; i < points.size(); i++) {
+                length += points.get(i - 1).getLength(points.get(i));
+            }
+        }
+        return length;
     }
 
 }
