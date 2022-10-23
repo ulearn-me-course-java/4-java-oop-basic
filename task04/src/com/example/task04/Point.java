@@ -1,23 +1,12 @@
-package com.example.task01;
+package com.example.task04;
 
-/**
- * Класс точки на плоскости
- */
 public class Point {
-    public int x;
-    public int y;
+    public final double x;
+    public final double y;
 
-    public Point(int x, int y) {
+    public Point(double x, double y) {
         this.x = x;
         this.y = y;
-    }
-    public Point() {
-
-    }
-    void flip() {
-        int temp = x;
-        x = -y;
-        y = -temp;
     }
     double distance(Point point) {
         double dis = Math.sqrt(Math.pow(x - point.x, 2) + Math.pow(y - point.y, 2));
