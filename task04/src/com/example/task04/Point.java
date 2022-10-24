@@ -1,21 +1,12 @@
-package com.example.task01;
+package com.example.task04;
+
 public class Point {
-    int x;
-    int y;
+    final int x;
+    final int y;
 
-    public Point(int xcoord, int ycoord){
-        x = xcoord;
-        y = ycoord;
-    }
-
-    public Point() {
-
-    }
-
-    public void flip(){
-        int temp = x;
-        x = -y;
-        y = -temp;
+    public Point(int x, int y){
+        this.x = x;
+        this.y = y;
     }
     double distance(Point point){
         return Math.sqrt(Math.pow((this.getX() - point.getX()), 2) + Math.pow((this.getY() - point.getY()), 2));
@@ -36,3 +27,4 @@ public class Point {
         System.out.println(pointToString);
     }
 }
+
