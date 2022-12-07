@@ -33,13 +33,16 @@ public class TimeSpan {
         return this.Hours;
     }
     public void getMinutes(int minutes) {
-        this.Minutes = minutes;
+        this.Minutes = minutes%60;
+        this.Hours = this.Hours + minutes/60;
     }
     public int setMinutes() {
         return this.Minutes;
     }
     public void getSeconds(int seconds) {
-        this.Seconds = seconds;
+        this.Seconds = seconds%60;
+        this.Minutes = (this.Minutes + seconds/60)%60;
+        this.Hours = this.Hours + (this.Minutes + seconds/60)/60;
     }
     public int setSeconds() {
         return this.Seconds;
