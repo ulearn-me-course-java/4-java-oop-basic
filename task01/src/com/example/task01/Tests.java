@@ -34,7 +34,7 @@ public class Tests {
             if (!f.isAccessible()) {
                 f.setAccessible(true);
             }
-            return (int)f.get(p);
+            return (int) f.get(p);
         } catch (NoSuchFieldException | IllegalAccessException e) {
             throw new AssertionError(String.format("Не могу получить значение \"%s\" для Point", field), e);
         }
