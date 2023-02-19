@@ -1,4 +1,4 @@
-package com.example.task01;
+package com.example.task04;
 
 /**
  * Класс точки на плоскости
