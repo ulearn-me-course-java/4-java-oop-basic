@@ -1,17 +1,18 @@
-package com.example.task01;
+package com.example.task04;
 
 public class Point {
-    int x;
-    int y;
+    final int x;
+     final int y;
 
     public Point(int x, int y){
         this.x = x;
         this.y = y;
     }
-    public void flip(){
-        int z = x;
-        x = y * -1;
-        y = z * -1;
+    public int getX(){
+        return x;
+    }
+    public int getY(){
+        return y;
     }
     double distance(Point point){
         return Math.sqrt(Math.pow( x - point.x, 2)  + Math.pow( y - point.y, 2));
