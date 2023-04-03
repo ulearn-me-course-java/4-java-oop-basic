@@ -1,4 +1,4 @@
-package com.example.task01;
+package com.example.task04;
 
 import static java.lang.Math.sqrt;
 
@@ -43,3 +43,4 @@ public class Point {
         return pointToString;
     }
 }
+
