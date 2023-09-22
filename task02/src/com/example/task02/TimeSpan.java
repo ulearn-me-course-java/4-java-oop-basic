@@ -46,13 +46,21 @@ public class TimeSpan {
     }
 
     public void subtract(TimeSpan time) {
-        hours -= time.hours;
-        minutes -= time.minutes;
-        seconds -= time.seconds;
+        int subtrahendSeconds = time.hours * 3600 + time.minutes * 60 + time.seconds;
+        int originalSeconds = hours * 3600 + minutes * 60 + seconds;
+        int resSeconds = originalSeconds - subtrahendSeconds;
+
+        if (resSeconds<0){
+            resSeconds=0;
+        }
+
+        hours = 0;
+        minutes = 0;
+        seconds = resSeconds;
         normalizeTime();
     }
 
     public String toString() {
-        return String.format( hours +":"+ minutes+":"+seconds);
+        return String.format( "%d:%02d:%02d",hours,minutes,seconds);
     }
 }

@@ -38,7 +38,7 @@ class ComplexNumber {
         if (imaginaryPartOfNumber >0){
             s=s+" + "+decimalFormat.format(imaginaryPartOfNumber)+"i";
         }else if(imaginaryPartOfNumber <0){
-            s=s+" - "+decimalFormat.format(imaginaryPartOfNumber)+"i";
+            s=s+" - "+decimalFormat.format(Math.abs(imaginaryPartOfNumber))+"i";
         }
         return s;
     }
