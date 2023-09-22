@@ -17,8 +17,7 @@ public class Point {
     }
 
     double distance(Point point){
-        double res = 0.0;
-        res = (x -point.x)*(x -point.x) + (y -point.y)*(y -point.y);
+        double res = (x -point.x)*(x -point.x) + (y -point.y)*(y -point.y);
         return Math.sqrt(res);
     }
     public String toString(){
