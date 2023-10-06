@@ -5,11 +5,8 @@ public class TimeSpan {
     private int _minutes;
     private int _seconds;
     public int getHours() { return _hours; }
-    public void setHours(int hours) { _hours = hours; }
     public int getMinutes() { return _minutes; }
-    public void setMinutes(int minutes) { _minutes = minutes; }
     public int getSeconds() { return _seconds; }
-    public void setSeconds(int seconds) { _seconds = seconds; }
 
     public TimeSpan(int hours, int minutes, int seconds){
         _hours = hours;
