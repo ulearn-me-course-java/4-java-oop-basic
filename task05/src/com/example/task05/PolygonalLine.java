@@ -10,8 +10,19 @@ public class PolygonalLine {
      *
      * @param points массив точек, которыми нужно проинициализировать ломаную линию
      */
+    Point[] points = new Point[0];
+
+    public PolygonalLine() {
+
+    }
+
     public void setPoints(Point[] points) {
-        // TODO: реализовать
+        Point[] newPolyline = new Point[points.length];
+
+        for (int i = 0; i < points.length; i++) {
+            newPolyline[i] = new Point(points[i].getX(), points[i].getY());
+        }
+        this.points = newPolyline;
     }
 
     /**
@@ -20,7 +31,12 @@ public class PolygonalLine {
      * @param point точка, которую нужно добавить к ломаной
      */
     public void addPoint(Point point) {
-        // TODO: реализовать
+        Point[] newPolyline = new Point[this.points.length + 1];
+        for (int i = 0; i < points.length; i++) {
+            newPolyline[i] = new Point(points[i].getX(), points[i].getY());
+        }
+        newPolyline[newPolyline.length-1] = point;
+        this.points = newPolyline;
     }
 
     /**
@@ -30,7 +46,8 @@ public class PolygonalLine {
      * @param y координата по оси ординат
      */
     public void addPoint(double x, double y) {
-        // TODO: реализовать
+        Point point = new Point(x,y);
+        addPoint(point);
     }
 
     /**
@@ -39,8 +56,10 @@ public class PolygonalLine {
      * @return длину ломаной линии
      */
     public double getLength() {
-        // TODO: реализовать
-        throw new AssertionError();
+        double PolyLineLength = 0;
+        for (int i = 0; i < points.length - 1; i++)
+            PolyLineLength += points[i].getLength(points[i + 1]);
+        return PolyLineLength;
     }
 
 }
