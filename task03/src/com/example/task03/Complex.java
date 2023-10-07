@@ -25,7 +25,7 @@ public class Complex {
         if (i >= 0) {
             return String.format("Z = %f + %f * i", r, i);
         } else {
-            return String.format("Z = %f + (%f) * i", r, i);
+            return String.format("Z = %f - (%f) * i", r, i);
         }
     }
 }
