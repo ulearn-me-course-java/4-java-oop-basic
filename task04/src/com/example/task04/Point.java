@@ -1,4 +1,4 @@
-package com.example.task01;
+package com.example.task04;
 
 import java.lang.Math;
 
@@ -6,19 +6,16 @@ import java.lang.Math;
  * Класс точки на плоскости
  */
 public class Point {
-    private int x;
-    private int y;
+    public final int x;
+    public final int y;
 
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public void flip() {
-        int oldX = this.x;
-        int oldY = this.y;
-        this.x = -oldY;
-        this.y = -oldX;
+    public Point flip() {
+        return new Point(-this.y, -this.x);
     }
 
     public double distance(Point point) {
