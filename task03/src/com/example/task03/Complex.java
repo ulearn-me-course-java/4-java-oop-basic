@@ -11,11 +11,11 @@ public class Complex {
         this.i = i;
     }
 
-    public Complex Sum(Complex complex){
+    public Complex sum(Complex complex){
         return new Complex(this.r + complex.r, this.i + complex.i);
     }
 
-    public Complex Multiply(Complex complex){
+    public Complex multiply(Complex complex){
         double r = this.r * complex.r - this.i * complex.i;
         double i = this.i * complex.r + this.r * complex.i;
         return new Complex(r, i);
