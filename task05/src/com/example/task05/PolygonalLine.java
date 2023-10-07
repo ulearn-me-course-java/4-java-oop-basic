@@ -1,46 +1,46 @@
 package com.example.task05;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * Ломаная линия
  */
 public class PolygonalLine {
+    private Point[] points = new Point[0];
 
-    /**
-     * Устанавливает точки ломаной линии
-     *
-     * @param points массив точек, которыми нужно проинициализировать ломаную линию
-     */
     public void setPoints(Point[] points) {
-        // TODO: реализовать
+        this.points = new Point[points.length];
+        for (int i = 0; i < points.length; i++) {
+            this.points[i] = new Point(points[i].getX(), points[i].getY());
+        }
     }
 
-    /**
-     * Добавляет точку к ломаной линии
-     *
-     * @param point точка, которую нужно добавить к ломаной
-     */
     public void addPoint(Point point) {
-        // TODO: реализовать
+        int length = this.points.length;
+        Point[] newPoints = new Point[length + 1];
+        for (int i = 0; i < length; i++) {
+            newPoints[i] = new Point(points[i].getX(), points[i].getY());
+        }
+        newPoints[length] = point;
+        this.points = newPoints;
     }
 
-    /**
-     * Добавляет точку к ломаной линии
-     *
-     * @param x координата по оси абсцисс
-     * @param y координата по оси ординат
-     */
     public void addPoint(double x, double y) {
-        // TODO: реализовать
+        int length = this.points.length;
+        Point[] newPoints = new Point[length + 1];
+        for (int i = 0; i < length; i++) {
+            newPoints[i] = new Point(points[i].getX(), points[i].getY());
+        }
+        newPoints[length] = new Point(x, y);
+        this.points = newPoints;
     }
 
-    /**
-     * Возвращает длину ломаной линии
-     *
-     * @return длину ломаной линии
-     */
     public double getLength() {
-        // TODO: реализовать
-        throw new AssertionError();
+        double sum = 0;
+        for (int i = 0; i < this.points.length - 1; i++) {
+            sum += points[i].getLength(points[i + 1]);
+        }
+        return sum;
     }
-
 }
