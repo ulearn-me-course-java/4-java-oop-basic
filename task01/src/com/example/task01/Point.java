@@ -1,14 +1,28 @@
 package com.example.task01;
 
-/**
- * Класс точки на плоскости
- */
 public class Point {
     int x;
     int y;
 
-    void print() {
-        String pointToString = String.format("(%d, %d)", x, y);
-        System.out.println(pointToString);
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public void flip() {
+        int temp = x;
+        x = -y;
+        y = -temp;
+    }
+
+    public double distance(Point point) {
+        int deltaX = x - point.x;
+        int deltaY = y - point.y;
+        return Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("(%d, %d)", x, y);
     }
 }
