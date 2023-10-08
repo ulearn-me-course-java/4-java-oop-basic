@@ -1,8 +1,8 @@
 package com.example.task03;
 
 public class ComplexNum {
-    private double realPart;
-    private double imaginaryPart;
+    private final double realPart;
+    private final double imaginaryPart;
 
     public ComplexNum(double realPart, double imaginaryPart) {
         this.realPart = realPart;
