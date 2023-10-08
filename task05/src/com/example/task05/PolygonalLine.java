@@ -1,8 +1,6 @@
 package com.example.task05;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * Ломаная линия
