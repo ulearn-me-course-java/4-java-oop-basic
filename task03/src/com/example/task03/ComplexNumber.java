@@ -23,13 +23,13 @@ class ComplexNumber {
         this.imaginaryPartOfNumber = illusory;
     }
 
-    public ComplexNumber sum(ComplexNumber number) {
-        return new ComplexNumber(number.realPartOfNumber + realPartOfNumber, number.imaginaryPartOfNumber + imaginaryPartOfNumber);
+    public ComplexNumber sum(ComplexNumber secondComplexNumber) {
+        return new ComplexNumber(secondComplexNumber.realPartOfNumber + realPartOfNumber, secondComplexNumber.imaginaryPartOfNumber + imaginaryPartOfNumber);
     }
 
-    public ComplexNumber multiply(ComplexNumber number) {
-        return new ComplexNumber(number.realPartOfNumber * realPartOfNumber - number.imaginaryPartOfNumber * imaginaryPartOfNumber,
-                number.realPartOfNumber * imaginaryPartOfNumber + number.imaginaryPartOfNumber * realPartOfNumber);
+    public ComplexNumber multiply(ComplexNumber secondComplexNumber) {
+        return new ComplexNumber(secondComplexNumber.realPartOfNumber * realPartOfNumber - secondComplexNumber.imaginaryPartOfNumber * imaginaryPartOfNumber,
+                secondComplexNumber.realPartOfNumber * imaginaryPartOfNumber + secondComplexNumber.imaginaryPartOfNumber * realPartOfNumber);
     }
     @Override
     public String toString() {

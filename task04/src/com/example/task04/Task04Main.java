@@ -6,6 +6,6 @@ public class Task04Main {
         Point a = new Point(1,1);
         Point b = new Point(4,4);
         Line line = new Line(a,b);
-        System.out.println(line);
+        System.out.println(line.isCollinearLine(new Point(-1, -1)));
     }
 }
