@@ -5,5 +5,11 @@ public class Task02Main {
         TimeSpan span = new TimeSpan(3, 140, 90);
         span.add(new TimeSpan(3, 2, 30));
         System.out.println(span);
+        Tests tests = new Tests();
+        tests.testConstructor();
+        tests.testFields();
+        tests.testAddMethod();
+        tests.testToString();
+        tests.testSubtractMethod();
     }
 }

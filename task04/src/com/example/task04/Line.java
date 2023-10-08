@@ -21,6 +21,6 @@ public class Line {
                 Math.abs(Math.abs(distanceP2P-distanceP1P) - p1.distance(p2))<0.001;
     }
     public String toString(){
-        return String.format("(%s; %s)", p1.toString(),p2.toString());
+        return String.format("(%s; %s)", p1.toString(), p2.toString());
     }
 }
