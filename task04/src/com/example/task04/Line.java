@@ -24,8 +24,8 @@ public class Line {
     }
 
     public boolean isCollinearLine(Point p) {
-        double[] distances = new double[]{p.distance(p1), p.distance(p2), p1.distance(p2)};
-        distances = Arrays.stream(distances).sorted().toArray();
-        return distances[0] + distances[1] - distances[2] < 1e-8;
+        double[] distances = new double[]{ p.distance(p1), p.distance(p2), p1.distance(p2) };
+        return Math.abs(distances[0] + distances[1] - distances[2]) < 1e-8 ||
+                Math.abs(Math.abs(distances[0] - distances[1]) - distances[2]) < 1e-8;
     }
 }
