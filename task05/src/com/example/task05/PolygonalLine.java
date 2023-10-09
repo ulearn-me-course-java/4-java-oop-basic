@@ -6,6 +6,7 @@ public class PolygonalLine {
     private Point[] points = new Point[0];
 
     public void setPoints(Point[] points) {
+        if (points == null ) { return; }
         this.points = cloneArray(points);
     }
 
