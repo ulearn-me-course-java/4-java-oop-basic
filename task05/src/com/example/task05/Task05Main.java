@@ -14,10 +14,7 @@ public class Task05Main {
         help.addPoint(new Point(9, 9));
         System.out.println(help.getLength());
 
-        Point[] points = {
-                new Point(1, 2),
-                new Point(4, 6)
-        };
+        Point[] points = {new Point(1, 2), new Point(4, 6)};
         PolygonalLine line = new PolygonalLine();
         for (Point p : points) {
             line.addPoint(p);

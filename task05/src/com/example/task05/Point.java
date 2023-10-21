@@ -5,8 +5,8 @@ package com.example.task05;
  */
 public class Point {
 
-    private double x;
-    private double y;
+    private final double x;
+    private final double y;
 
     /**
      * Конструктор, инициализирующий координаты точки
