@@ -1,4 +1,4 @@
-package com.example.task01;
+package com.example.task04;
 
 public class Point
 {
@@ -34,10 +34,5 @@ public class Point
     public String toString()
     {
         return String.format("(%d, %d)", x, y);
-    }
-
-    void print() {
-        String pointToString = String.format("(%d, %d)", x, y);
-        System.out.println(pointToString);
     }
 }
