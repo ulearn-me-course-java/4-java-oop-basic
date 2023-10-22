@@ -19,8 +19,8 @@ public class Point {
 
     void flip() {
         int savedX = x;
-        x = -1 * y;
-        y = -1 * savedX;
+        x = -y;
+        y = -savedX;
     }
 
     double distance(Point point) {
