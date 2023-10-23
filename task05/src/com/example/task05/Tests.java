@@ -10,6 +10,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class Tests {
+public class Tests {
 
     /**
      * Тестирование расстояния от точки до точки
