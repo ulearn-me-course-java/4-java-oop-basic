@@ -1,46 +1,63 @@
 package com.example.task05;
 
-/**
- * Ломаная линия
- */
 public class PolygonalLine {
+    private Point[] points;
 
-    /**
-     * Устанавливает точки ломаной линии
-     *
-     * @param points массив точек, которыми нужно проинициализировать ломаную линию
-     */
     public void setPoints(Point[] points) {
-        // TODO: реализовать
+        this.points = new Point[points.length];
+
+        int count = 0;
+
+        for (Point point : points) {
+            this.points[count++] = point;
+        }
     }
 
-    /**
-     * Добавляет точку к ломаной линии
-     *
-     * @param point точка, которую нужно добавить к ломаной
-     */
     public void addPoint(Point point) {
-        // TODO: реализовать
+        Point[] pointsNew = new Point[this.points.length + 1];
+
+        int count = 0;
+
+        for (Point pointC : points) {
+            pointsNew[count++] = pointC;
+        }
+
+        pointsNew[count] = point;
+        this.points = pointsNew;
     }
 
-    /**
-     * Добавляет точку к ломаной линии
-     *
-     * @param x координата по оси абсцисс
-     * @param y координата по оси ординат
-     */
+
     public void addPoint(double x, double y) {
-        // TODO: реализовать
+        Point[] pointsNew = new Point[this.points.length + 1];
+
+        Point point = new Point(x,y);
+
+        int count = 0;
+
+        for (Point pointC : points) {
+            pointsNew[count++] = pointC;
+        }
+
+        pointsNew[count] = point;
+        this.points = pointsNew;
     }
 
-    /**
-     * Возвращает длину ломаной линии
-     *
-     * @return длину ломаной линии
-     */
     public double getLength() {
-        // TODO: реализовать
-        throw new AssertionError();
+        double length = 0;
+        for (int count = 0; count < points.length - 1; count++) {
+            Point p1 = points[count];
+            Point p2 = points[count + 1];
+
+            length += p1.getLength(p2);
+        }
+        return length;
     }
 
+    public void getPoints() {
+        for (Point point : points) {
+            System.out.println(point.getX());
+            System.out.println(point.getY());
+            System.out.println("-----");
+        }
+    }
 }
