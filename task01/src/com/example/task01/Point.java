@@ -5,7 +5,7 @@ package com.example.task01;
  */
 public class Point {
     int x;
-    int y;
+    int y;//gazlnbz dlm
 
     void print() {
         String pointToString = String.format("(%d, %d)", x, y);
