@@ -48,6 +48,14 @@ public class TimeSpan {
         Minutes -= time.getMinutes();
         Seconds -= time.getSeconds();
         transformTime();
+        if (Seconds < 0){
+            Minutes--;
+            Seconds += 60;
+        }
+        if(Minutes < 0){
+            Hours--;
+            Minutes += 60;
+        }
     }
     public String toString(){
         return String.format("%d:%d:%d", Hours,Minutes,Seconds);
