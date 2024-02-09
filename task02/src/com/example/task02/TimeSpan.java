@@ -7,11 +7,23 @@ public class TimeSpan {
     public int getHours(){
         return Hours;
     }
+    public void setHours(int hours){
+        Hours = hours;
+        transformTime();
+    }
     public int getMinutes(){
         return Minutes;
     }
+    public void setMinutes(int minutes){
+        Minutes = minutes;
+        transformTime();
+    }
     public int getSeconds(){
         return Seconds;
+    }
+    public void setSeconds(int seconds){
+        Seconds = seconds;
+        transformTime();
     }
     public TimeSpan(int hours, int minutes, int seconds){
         Hours = hours;
@@ -31,41 +43,10 @@ public class TimeSpan {
         this.Seconds += time.Minutes;
         transformTime();
     }
-    public void subtract(TimeSpan time){
-        if(time.Hours > this.Hours){
-            return;
-        }
-        this.Hours -= time.Hours;
-        if(time.Minutes > this.Hours){
-            if(this.Hours > 0){
-                this.Hours -= 1;
-                this.Minutes += 60 - time.Minutes;
-            }
-            else{
-                this.Hours += time.Hours;
-                return;
-            }
-        }
-        this.Minutes -= time.Minutes;
-        if(time.Seconds > this.Seconds){
-            if (this.Minutes > 0) {
-                this.Minutes -= 1;
-                this.Seconds += 60 - time.Seconds;
-            }
-            else {
-                if (this.Hours > 0) {
-                    this.Hours -= 1;
-                    this.Minutes += 59;
-                    this.Seconds += 60 - time.Seconds;
-                }
-                else {
-                    this.Hours += time.Hours;
-                    this.Minutes += time.Minutes;
-                    return;
-                }
-            }
-        }
-        this.Seconds -= time.Seconds;
+    public void subtract(TimeSpan time) {
+        Hours -= time.getHours();
+        Minutes -= time.getMinutes();
+        Seconds -= time.getSeconds();
         transformTime();
     }
     public String toString(){
