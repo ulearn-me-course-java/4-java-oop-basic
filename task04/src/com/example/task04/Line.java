@@ -18,8 +18,12 @@ public class Line {
     }
     public boolean isCollinearLine(Point point) {
         int A = point2.y - point1.y;
-        int B = point1.x - point2.x;
-        int C = point2.x * point1.y - point1.x * point2.y;
-        return A * point.x + B * point.y + C == 0;
+        int B = point2.x - point1.x;
+        int C = point.y - point1.y;
+        int D = point.x - point1.x;
+        return A/B == C/D;
+    }
+    public String toString(){
+        return String.format("point 1 " + point1 + " point 2 " + point2);
     }
 }
