@@ -3,7 +3,6 @@ package com.example.task03;
 public class ComplexNumber {
     private double real;
     private double imaginary;
-
     public double getReal(){
         return real;
     }
