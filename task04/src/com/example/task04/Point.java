@@ -1,8 +1,4 @@
-package com.example.task01;
-
-/**
- * Класс точки на плоскости
- */
+package com.example.task04;
 public class Point {
     int x;
     int y;
@@ -30,5 +26,9 @@ public class Point {
     void print() {
         String pointToString = String.format("(%d, %d)", x, y);
         System.out.println(pointToString);
+    }
+
+    public float getAngularCoefficient(Point point){
+        return (float)(point.y - y)/(point.x - x);
     }
 }
