@@ -69,4 +69,16 @@ public class Tests {
         }
     }
 
+/*    private void check(int sec, int min, int hours, int s2, int m2, int h2) {
+        Assert.assertTrue(new TimeSpan(sec,min,hours).toString().equals(new TimeSpan(s2,m2,h2).toString()));
+    }
+
+    @Test
+    public void testPlus() throws Exception {
+        check(1, 1, 1,1,1,1);
+        check(60,0,0,0,1,0);
+        check(60,59,0,0,0,1);
+        check(60,60,0,0,1,1);
+    }*/
+
 }
