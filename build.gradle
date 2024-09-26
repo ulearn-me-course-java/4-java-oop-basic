@@ -17,6 +17,10 @@ subprojects {
         it.options.encoding = "UTF-8"
     }
 
+    tasks.withType(JavaExec) {
+        enableAssertions = true
+    }
+
     group 'java-base'
     version '1.0-SNAPSHOT'
 
