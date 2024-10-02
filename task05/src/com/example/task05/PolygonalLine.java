@@ -1,46 +1,47 @@
 package com.example.task05;
 
+import java.util.Arrays;
+
 /**
  * Ломаная линия
  */
 public class PolygonalLine {
+    private Point[] points;
+    private double len = 0;
 
-    /**
-     * Устанавливает точки ломаной линии
-     *
-     * @param points массив точек, которыми нужно проинициализировать ломаную линию
-     */
+    public PolygonalLine() {}
+
     public void setPoints(Point[] points) {
-        // TODO: реализовать
+        this.points = points;
+        length();
     }
 
-    /**
-     * Добавляет точку к ломаной линии
-     *
-     * @param point точка, которую нужно добавить к ломаной
-     */
     public void addPoint(Point point) {
-        // TODO: реализовать
+        if (this.points == null) {
+            this.points = new Point[]{point};
+            this.len++;
+        }
+        else{
+            Point[] refreshPoints = new Point[points.length + 1];
+            System.arraycopy(points, 0, refreshPoints, 0, points.length);
+            refreshPoints[refreshPoints.length - 1] = point;
+            setPoints(refreshPoints);
+        }
     }
 
-    /**
-     * Добавляет точку к ломаной линии
-     *
-     * @param x координата по оси абсцисс
-     * @param y координата по оси ординат
-     */
     public void addPoint(double x, double y) {
-        // TODO: реализовать
+        Point point = new Point(x,y);
+        addPoint(point);
     }
 
-    /**
-     * Возвращает длину ломаной линии
-     *
-     * @return длину ломаной линии
-     */
     public double getLength() {
-        // TODO: реализовать
-        throw new AssertionError();
+        return len;
     }
 
+    private void length(){
+        this.len = 0;
+        for (int i = 0; i < points.length - 1; i++) {
+            this.len += points[i].getLength(points[i + 1]);
+        }
+    }
 }
