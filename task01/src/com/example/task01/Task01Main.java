@@ -2,13 +2,15 @@ package com.example.task01;
 
 public class Task01Main {
     public static void main(String[] args) {
-        Point p1 = new Point();
-        p1.x = 10;
+        Point p1 = new Point(-20,0);
+        p1.x = -10;
         p1.y = 45;
-        Point p2 = new Point();
+        Point p2 = new Point(0,0);
         p2.x = 78;
         p2.y = 12;
 
+        p1.flip();
+        System.out.println(p1.x);
         System.out.println("Point 1:");
         p1.print();
         System.out.println(p1);
