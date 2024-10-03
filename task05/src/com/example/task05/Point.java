@@ -22,6 +22,6 @@ public class Point {
 
     public double getLength(Point point) {
         // TODO: реализовать
-        return Math.sqrt(Math.pow(x - point.getX(),2)) + Math.sqrt(Math.pow(y - point.getY(),2));
+        return Math.sqrt(Math.pow(x - point.getX(),2) + Math.pow(y - point.getY(),2));
     }
 }

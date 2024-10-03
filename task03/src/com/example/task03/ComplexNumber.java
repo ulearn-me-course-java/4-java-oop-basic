@@ -5,8 +5,8 @@ public class ComplexNumber {
     private final double ImaginePart;
 
     public ComplexNumber(double realPart, double imaginePart){
-        RealPart = realPart;
-        ImaginePart = imaginePart;
+        this.RealPart = realPart;
+        this.ImaginePart = imaginePart;
     }
 
     public ComplexNumber sumOfComplexNumber(ComplexNumber number){
