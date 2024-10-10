@@ -10,10 +10,10 @@ public class Task01Main {
         p2.y = 12;
 
         System.out.println("Point 1:");
-        p1.print();
+        p1.toString();
         System.out.println(p1);
         System.out.println("Point 2:");
-        p2.print();
+        p2.toString();
         System.out.println(p2);
     }
 }
