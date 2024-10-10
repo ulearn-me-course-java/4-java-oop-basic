@@ -1,9 +1,15 @@
 package com.example.task05;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * Ломаная линия
  */
 public class PolygonalLine {
+    private List<Point> points = new ArrayList<>();
 
     /**
      * Устанавливает точки ломаной линии
@@ -11,7 +17,10 @@ public class PolygonalLine {
      * @param points массив точек, которыми нужно проинициализировать ломаную линию
      */
     public void setPoints(Point[] points) {
-        // TODO: реализовать
+         this.points = Arrays
+                .stream(points)
+                .map(point -> new Point(point.getX(), point.getY()))
+                .collect(Collectors.toList());
     }
 
     /**
@@ -20,7 +29,7 @@ public class PolygonalLine {
      * @param point точка, которую нужно добавить к ломаной
      */
     public void addPoint(Point point) {
-        // TODO: реализовать
+        addPoint(point.getX(), point.getY());
     }
 
     /**
@@ -30,7 +39,8 @@ public class PolygonalLine {
      * @param y координата по оси ординат
      */
     public void addPoint(double x, double y) {
-        // TODO: реализовать
+        Point point = new Point(x, y);
+        this.points.add(point);
     }
 
     /**
@@ -38,9 +48,20 @@ public class PolygonalLine {
      *
      * @return длину ломаной линии
      */
-    public double getLength() {
-        // TODO: реализовать
-        throw new AssertionError();
-    }
+    public double getLength() throws UnsupportedOperationException {
+        int totalPoints = points.size();
+        if(totalPoints < 2)
+            throw new UnsupportedOperationException(
+                    "The line must have at least 2 points. Got: " + totalPoints);
 
+        double totalLength = 0;
+        for (int i = 0; i < totalPoints - 1; i++) {
+            Point p1 = this.points.get(i);
+            Point p2 = this.points.get(i + 1);
+
+            totalLength += p1.getLength(p2);
+        }
+
+        return totalLength;
+    }
 }
