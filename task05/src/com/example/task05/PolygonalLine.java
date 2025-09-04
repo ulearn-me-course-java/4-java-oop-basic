@@ -1,46 +1,38 @@
 package com.example.task05;
 
-/**
- * Ломаная линия
- */
+import java.util.List;
+import java.util.ArrayList;
+
 public class PolygonalLine {
 
-    /**
-     * Устанавливает точки ломаной линии
-     *
-     * @param points массив точек, которыми нужно проинициализировать ломаную линию
-     */
+    private List<Point> points = new ArrayList<>();
     public void setPoints(Point[] points) {
-        // TODO: реализовать
+        this.points = new ArrayList<>();
+        for (Point p : points) {
+            this.points.add(new Point(p.getX(), p.getY()));
+        }
     }
 
-    /**
-     * Добавляет точку к ломаной линии
-     *
-     * @param point точка, которую нужно добавить к ломаной
-     */
+
     public void addPoint(Point point) {
-        // TODO: реализовать
+        points.add(new Point(point.getX(), point.getY()));
     }
 
-    /**
-     * Добавляет точку к ломаной линии
-     *
-     * @param x координата по оси абсцисс
-     * @param y координата по оси ординат
-     */
     public void addPoint(double x, double y) {
-        // TODO: реализовать
+        points.add(new Point(x, y));
     }
 
-    /**
-     * Возвращает длину ломаной линии
-     *
-     * @return длину ломаной линии
-     */
+
     public double getLength() {
-        // TODO: реализовать
-        throw new AssertionError();
+        double sum = 0.0;
+        for(int i = 0; i < points.size()-1; i++) {
+            sum += getLengthBetweenPoints(points.get(i), points.get(i+1));
+        }
+        return sum;
+    }
+
+    private double getLengthBetweenPoints(Point point1,  Point point2) {
+        return Math.sqrt(Math.pow(point2.getX() - point1.getX(), 2) + Math.pow(point2.getY() - point1.getY(), 2));
     }
 
 }
