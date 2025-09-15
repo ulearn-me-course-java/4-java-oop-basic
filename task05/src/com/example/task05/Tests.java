@@ -66,7 +66,7 @@ public class Tests {
                 new Point(15, 16),
         };
         PolygonalLine line = new PolygonalLine();
-        line.setPoints(points);
+        line.setPolygonalLine(points);
         testEquals(line.getLength(), 20);
     }
 
@@ -119,7 +119,7 @@ public class Tests {
 
     /**
      * Тестирование модификации массива точек.
-     * Если этот метод падает, то скорее всего некорректно реализован метод {@link PolygonalLine#setPoints(Point[])}, который
+     * Если этот метод падает, то скорее всего некорректно реализован метод {@link PolygonalLine#setPolygonalLine(Point[])}, который
      * заменяет внутренний массив на переданный. Корректная реализация должна копировать элементы массив, не используя переданный
      * массив в качестве хранилища
      */
@@ -130,7 +130,7 @@ public class Tests {
                 new Point(4, 6)
         };
         PolygonalLine line = new PolygonalLine();
-        line.setPoints(points);
+        line.setPolygonalLine(points);
         final double expected = line.getLength();
         points[1] = new Point(10, 20);
         Assert.assertTrue("Модификация массива точек приводит к модификации ломаной линии", Math.abs(expected - line.getLength()) < 1e-8);
@@ -138,7 +138,7 @@ public class Tests {
 
     /**
      * Тестирование модификации массива точек
-     * Если этот тест падает, то скорее всего некорректно реализован метод {@link PolygonalLine#setPoints(Point[])},
+     * Если этот тест падает, то скорее всего некорректно реализован метод {@link PolygonalLine#setPolygonalLine(Point[])},
      * который добавляет передаваемые точки в "массив" точек ломаной без копирования.
      * Корректная реализация должна "копировать" не только сам массив, но еще и точку,
      * т.е. создавать новый экземпляр объекта на основе переданного.
@@ -150,7 +150,7 @@ public class Tests {
                 new Point(4, 6)
         };
         PolygonalLine line = new PolygonalLine();
-        line.setPoints(points);
+        line.setPolygonalLine(points);
         final double expected = line.getLength();
         Field[] fields = Point.class.getDeclaredFields();
         if (fields.length > 0) {
