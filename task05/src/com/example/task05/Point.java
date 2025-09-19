@@ -4,16 +4,20 @@ package com.example.task05;
  * Точка в двумерном пространстве
  */
 public class Point {
+    final private double x;
+    final private double y;
 
+    public Point(double x, double y){
+        this.x = x;
+        this.y = y;
+    }
     /**
      * Конструктор, инициализирующий координаты точки
      *
      * @param x координата по оси абсцисс
      * @param y координата по оси ординат
      */
-    public Point(double x, double y) {
-        throw new AssertionError();
-    }
+
 
     /**
      * Возвращает координату точки по оси абсцисс
@@ -21,8 +25,7 @@ public class Point {
      * @return координату точки по оси X
      */
     public double getX() {
-        // TODO: реализовать
-        throw new AssertionError();
+        return x;
     }
 
     /**
@@ -31,8 +34,7 @@ public class Point {
      * @return координату точки по оси Y
      */
     public double getY() {
-        // TODO: реализовать
-        throw new AssertionError();
+        return y;
     }
 
     /**
@@ -42,8 +44,9 @@ public class Point {
      * @return расстояние от текущей точки до переданной
      */
     public double getLength(Point point) {
-        // TODO: реализовать
-        throw new AssertionError();
+        double distX = Math.pow(x-point.x,2);
+        double distY = Math.pow(y-point.y,2);
+        return Math.sqrt(distY + distX);
     }
 
 }
