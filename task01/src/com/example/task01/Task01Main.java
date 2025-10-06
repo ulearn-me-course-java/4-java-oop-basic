@@ -17,3 +17,4 @@ public class Task01Main {
         System.out.println(p2);
     }
 }
+
