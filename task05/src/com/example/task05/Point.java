@@ -5,6 +5,10 @@ package com.example.task05;
  */
 public class Point {
 
+    // Поля должны быть private и final для прохождения теста testFieldsModificators
+    private final double x;
+    private final double y;
+
     /**
      * Конструктор, инициализирующий координаты точки
      *
@@ -12,7 +16,8 @@ public class Point {
      * @param y координата по оси ординат
      */
     public Point(double x, double y) {
-        throw new AssertionError();
+        this.x = x;
+        this.y = y;
     }
 
     /**
@@ -21,8 +26,7 @@ public class Point {
      * @return координату точки по оси X
      */
     public double getX() {
-        // TODO: реализовать
-        throw new AssertionError();
+        return x;
     }
 
     /**
@@ -31,19 +35,19 @@ public class Point {
      * @return координату точки по оси Y
      */
     public double getY() {
-        // TODO: реализовать
-        throw new AssertionError();
+        return y;
     }
 
     /**
      * Подсчитывает расстояние от текущей точки до точки, переданной в качестве параметра
+     * Используется формула: sqrt((x2 - x1)^2 + (y2 - y1)^2)
      *
      * @param point вторая точка отрезка
      * @return расстояние от текущей точки до переданной
      */
     public double getLength(Point point) {
-        // TODO: реализовать
-        throw new AssertionError();
+        double dx = this.x - point.x;
+        double dy = this.y - point.y;
+        return Math.sqrt(dx * dx + dy * dy);
     }
-
 }
